@@ -1,0 +1,6 @@
+module Pods_Neostorern_NeostorernTests {
+  umbrella header "Pods-Neostorern-NeostorernTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
