@@ -1,11 +1,11 @@
-import { LOGIN } from "./Types/LoginTypes";
+import { LOGIN } from "../Types/LoginTypes";
 const initialState = {
     UserData : {},
     isLogin : false
 }
-
-export const LoginReducer = (state = initialState, action) => {
-    switch (action) {
+ const LoginReducer = (state = initialState, action) => {
+     console.log("reducer = ", action)
+    switch (action.type) {
         case LOGIN :
         return {
             ...state,
@@ -15,3 +15,4 @@ export const LoginReducer = (state = initialState, action) => {
         default : return state
     }
 }
+export default LoginReducer
