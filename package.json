@@ -10,8 +10,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/checkbox": "^0.5.7",
+    "radio-buttons-react-native": "^1.0.4",
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-native-radio-button": "^2.0.1",
+    "react-native-radio-buttons-group": "^1.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
