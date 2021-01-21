@@ -1,0 +1,1 @@
+export const Base_Url = 'http://staging.php-dev.in:8844/trainingapp/api/'

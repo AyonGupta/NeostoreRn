@@ -1,7 +1,23 @@
 import { LOGIN } from "../Type/LoginType";
-export const PerformLogin = (email, pass) => (
+import LoginService from '../../Service/LoginService'
+export const PerformLogin = (email, pass) => 
     {
-        type : LOGIN,
-        data : {'email' : email, 'id' : Math.random()}
+        LoginService.LoginUser(email,pass)
+        .then (
+            data => {
+                return {
+                    type : LOGIN,
+                    data : data
+                }
+            }, 
+            error => {
+                return error 
+            }
+        )
+        //  LoginService.PerformLogin(email,pass)
+        //  .
+        
+        // type : LOGIN,
+        // data : {'email' : email, 'id' : Math.random()}
     }
-)
+
