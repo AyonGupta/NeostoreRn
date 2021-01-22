@@ -5,6 +5,7 @@ import{
 import CheckBox from '@react-native-community/checkbox';
 import TextInputView from '../Helper/textinputview';
 import ButtonView from '../Helper/buttonview';
+import RadioForm from 'react-native-simple-radio-button';
 
 export class RegisterView extends Component
 {
@@ -12,12 +13,12 @@ export class RegisterView extends Component
     {
         const genderOptions = [
             {
-                label : 'malekey',
-                value  : 'Male'
+                label : 'Male',
+                value  : '1'
             },
             {
-                label : 'femalekey',
-                value : 'Female'
+                label : 'Female',
+                value : '0'
             }
         ];
         return(
@@ -29,13 +30,29 @@ export class RegisterView extends Component
                     <TextInputView placeholder = 'Email' source = {require('../Resources/email.png')}/>
                     <TextInputView placeholder = 'Password' source = {require('../Resources/password.png')}/>
                     <TextInputView placeholder = 'Confirm Password' source = {require('../Resources/password.png')}/>
+                    <View style = {{alignItems : 'center', flexDirection : 'row',justifyContent : 'flex-start',width : '100%'}}>
+                        <Text style = {styles.radiolabelStyle}>Gender</Text>
+                        <RadioForm radio_props = {genderOptions} 
+                        formHorizontal={true} initial={0}
+                        buttonInnerColor='white' 
+                        buttonOuterColor='white' 
+                        labelColor = 'white' 
+                        buttonColor = 'white' 
+                        selectedButtonColor = 'white'
+                        buttonSize={15}
+                        buttonOuterSize={25}
+                        labelStyle = {{position: 'relative',margin : 3,alignSelf : 'center',fontSize : 15} }
+                        selectedLabelColor = 'white'/>
+                    </View>
+                    
+
                     <TextInputView placeholder = 'Phone Number' source = {require('../Resources/phone.png')}/>
 
                     <View style = {styles.labelinputcontainerStyle} >
                         <CheckBox
                         style = {{
-                        height : 25,
-                        width : 25}}
+                        height : 20,
+                        width : 20,marginLeft : 10}}
                         color = 'white'
                         borderColor = 'white' 
                         onCheckColor = 'white' 
@@ -64,72 +81,24 @@ const styles = StyleSheet.create(
     {
         maincontainerStyle : {
             backgroundColor :'#e91b1a',
-            padding : 20,
+            padding : 10,
             height : '100%',
             width : '100%',
         },
         containerStyle : {
-            padding : 20,
+            padding : 10,
             justifyContent : 'center',
         },
         textStyle : {
             color : 'white',
             fontStyle : 'normal',
             fontWeight : 'bold',
-            fontSize : 40,
-            marginBottom : 10,
-            justifyContent : 'center',
-            alignSelf : 'center',
-            alignItems : 'center'
-        },
-        buttonStyle : {
-            elevation : 1,
-            backgroundColor : '#e91b1a',
-            color : 'white',
-            alignSelf : 'center',
-            width : '100%',
-        },
-        textinputcontainerStyle : {
-            elevation : 10,
-            flexDirection : 'row',
-            borderColor :'white',
-            padding : 5,
-            borderWidth : 1,
-            justifyContent : 'center',
-            flexDirection : 'row',
-            backgroundColor : '#e91b1a',
-            margin : 10
-        },
-        buttontextStyle : {
-            color : '#e91b1a',
-            backgroundColor : 'white',
-            fontStyle : 'normal',
-            fontWeight : 'bold',
-            fontSize : 25,
-            borderRadius : 10,
-            padding : 15,
-            alignItems : 'center',
-            justifyContent : 'center',
-            textAlign : 'center',
-        },
-        imageStyle: {
-            padding: 10,
-            margin: 10,
+            fontSize : 35,
             marginBottom : 5,
-            height: 25,
-            width: 25,
-            resizeMode: 'stretch',
-            alignItems : 'center'
-          },
-          logoimageStyle: {
-            height: 180,
-            width: 180,
-            margin : 10,
-            resizeMode: 'center',
-            alignItems : 'center',
+            justifyContent : 'center',
             alignSelf : 'center',
-            justifyContent : 'center'
-          },
+            alignItems : 'center'
+        },
           labelinputcontainerStyle : {
             elevation : 10,
             flexDirection : 'row',
@@ -137,9 +106,19 @@ const styles = StyleSheet.create(
             justifyContent : 'flex-start',
             flexDirection : 'row',
             backgroundColor : '#e91b1a',
-            margin : 10,
+            margin : 2,
             fontWeight : 'bold',
             fontSize : 16
+        },
+        radiolabelStyle : {
+            color : 'white',
+            borderRadius : 5,
+            fontSize : 15,
+            fontWeight : 'bold',
+            textAlignVertical : 'center',
+            justifyContent : 'flex-start',
+            margin : 10,
+            marginRight : 50
         },
     }
 )

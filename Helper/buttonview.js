@@ -17,7 +17,7 @@ export default ButtonView;
 const styles = StyleSheet.create(
     {
         buttonStyle : {
-            elevation : 10,
+            elevation : 2,
             backgroundColor : '#e91b1a',
             color : 'white',
             alignSelf : 'center',
@@ -33,7 +33,6 @@ const styles = StyleSheet.create(
             fontStyle : 'normal',
             fontWeight : 'bold',
             fontSize : 25,
-            borderRadius : 10,
             padding : 15,
             alignItems : 'center',
             justifyContent : 'center',
