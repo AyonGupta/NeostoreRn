@@ -1,4 +1,4 @@
-import { LOGIN } from "../Type/LoginType";
+import { LOGIN_ASYNC } from "../Type/LoginType";
 const initialState = {
     UserData : {},
     IsUserLogin : false
@@ -6,7 +6,7 @@ const initialState = {
 
 const LoginReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOGIN :
+        case LOGIN_ASYNC :
         return {
             ...state,
             UserData : action.data,
