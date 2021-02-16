@@ -6,23 +6,30 @@
 * @flow strict-local
 */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import ProductList from "./Views/ProductList";
 import { useDispatch, useSelector } from "react-redux";
 import { PerformLogin } from "./Redux/Action/LoginAction";
+import SplashScreen from 'react-native-splash-screen';
+
 import 
 { 
   View ,
   Button,
   Text
 } from "react-native";
-const App = () => {
   
-  const dispatch = useDispatch ()
+const App = () => {
+    const dispatch = useDispatch ()
   const isLogin = useSelector (state => state.loginReducer.isLogin)
   const isLoading = useSelector (state => state.loginReducer.isLoader)
 
-  console.log ('isLoading =', isLoading)
+  
+  useEffect (() => 
+  {
+    SplashScreen.hide()
+  })
+  
   return (
     <View style = 
     {
