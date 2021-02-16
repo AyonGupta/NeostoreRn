@@ -14,10 +14,7 @@
     "react-native": "0.63.4",
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
-<<<<<<< HEAD
-=======
     "redux-thunk": "^2.3.0",
->>>>>>> e0472ab69ace03465393533e904a3cee0a1a3b7c
     "react-native-splash-screen": "^3.2.0"
   },
   "devDependencies": {
