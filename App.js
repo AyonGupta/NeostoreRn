@@ -21,7 +21,7 @@ import
 
 const App = () => {
   const dispatch = useDispatch ()
-  const isLogin = useSelector (state => state.loginReducer.isLogin)
+  const UserData = useSelector (state => state.loginReducer.UserData)
   const isLoading = useSelector (state => state.loginReducer.isLoader)
   
   
@@ -51,12 +51,13 @@ const App = () => {
     {
       () => 
       {
-        dispatch (PerformLogin ("a@e.in", "1234"))
+        dispatch (PerformLogin ("vrushneo123@gmail.com", "123456"))
       }
     }/>
     
     {/* <Text> {isLoading ? 'Loading...' : ''}</Text> */}
     {isLoading && <Text>Loading</Text>}
+    { UserData != null && <Text style = {{padding : 30}}> {JSON.stringify(UserData)} </Text>}
     {/* <Text>Hello world</Text> */}
     {/* <Text>  {isLogin ? 'Login success' : ''}</Text> */}
     </View>
