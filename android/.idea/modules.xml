@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Neostorern.iml" filepath="$PROJECT_DIR$/.idea/modules/Neostorern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Neostorern.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Neostorern.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-733521957/Neostorern.react-native-splash-screen.iml" filepath="$PROJECT_DIR$/.idea/modules/-733521957/Neostorern.react-native-splash-screen.iml" />
+    </modules>
+  </component>
+</project>
