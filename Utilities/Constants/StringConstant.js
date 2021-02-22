@@ -1,0 +1,5 @@
+export const LP_NEOSTORE = "NeoSTORE"
+export const LP_PLACEHOLDER_EMAIL = "Please enter your email"
+export const LP_PLACEHOLDER_PASSWORD = "Please enter your password"
+export const LP_LOGIN = "LOGIN"
+export const LP_FORGOT = "Forgot Password?"
