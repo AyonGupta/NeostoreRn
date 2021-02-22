@@ -14,6 +14,11 @@ const LoginStyle = StyleSheet.create(
             backgroundColor : 'red',
             flexDirection : 'column'
         },
+        mainView : 
+        {
+            flex : 1,
+            flexDirection : 'column',
+        },
         titleView : 
         {
             height : '50%',

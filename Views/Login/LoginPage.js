@@ -4,7 +4,8 @@ import
     Text,
     ScrollView ,
     Pressable,
-    Button
+    Button,
+    TouchableOpacity
 } from "react-native";
 import React, {useState} from "react";
 import LoginStyle from "../Login/LoginPage.style";
@@ -24,21 +25,24 @@ const LoginPage = () =>
     }
     const OnPressForgotPassword = () => 
     {
-       console.log ('Shame that you forgot your password!!')
+        console.log ('Shame that you forgot your password!!')
     }
-
+    const OnPressRegister = () => 
+    {
+        console.log ('You have chosen to registre account')
+    }
     return (
         <ScrollView 
         style = {LoginStyle.scrollStyle}
         bounces = {false}
         >
+        <View style = {LoginStyle.mainView}>
         <View 
         style = {LoginStyle.titleView}> 
         <Text 
         style= {LoginStyle.titleText}> {Strings.LP_NEOSTORE}</Text>
         </View>
         <View style = {{height : 60}}/>
-        
         <Entry 
         placeholder = {Strings.LP_PLACEHOLDER_EMAIL}
         OnTextChange = {(txtEmail) => {
@@ -56,25 +60,26 @@ const LoginPage = () =>
         isPassword = {true}
         />
         
-        <Pressable 
+        <TouchableOpacity 
         style = {LoginStyle.signinStyle}
         onPress = {OnPressLogin}>
         <Text 
         style = {LoginStyle.signinTextStyle}>
         {Strings.LP_LOGIN}
         </Text>
-        </Pressable>
-
-        {/* <Button
-        onPress = {OnPressForgotPassword}
-        title = {Strings.LP_FORGOT}
-        style = {LoginStyle.forgotTextStyle}
-        color = 'white'
-        /> */}
-        <Pressable
+        </TouchableOpacity>
+        <TouchableOpacity
         onPress = {OnPressForgotPassword}>
         <Text style = {LoginStyle.forgotTextStyle}>{Strings.LP_FORGOT}</Text>
-        </Pressable>
+        </TouchableOpacity>
+
+        <View style = {{height : 20}}></View>
+        <TouchableOpacity
+        onPress = {OnPressRegister}>
+        <Text style = {LoginStyle.forgotTextStyle}>{Strings.LP_REGISTER}</Text>
+        </TouchableOpacity>
+
+        </View>
         </ScrollView>
         );
     }

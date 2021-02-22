@@ -51,7 +51,7 @@ static void InitializeFlipper(UIApplication *application) {
   //        NSLog(@"\tfont:'%@'",fontName);
   //    }
   //    NSLog(@"-------------");
- }
+ //}
 
   return YES;
 }
