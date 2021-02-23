@@ -38,10 +38,10 @@ const RegisterPage = (props) =>
                 style = {{flex : 0.25, flexDirection : 'row', justifyContent : 'center'}}
                 onPress = {()=> {
                     if (Gender != '') {
-                        if (Gender == 'Male') {
-                            SetGender ('Female')
+                        if (Gender != props.title) {
+                            SetGender (props.title)
                         } else {
-                            SetGender ('Male')
+                            SetGender (Gender)
                         }
                     } else {
                         SetGender (props.title)
@@ -66,10 +66,10 @@ const RegisterPage = (props) =>
                                 onPress = {()=> {
                                     props.navigation.dispatch (StackActions.pop(1))
                                 }}
-                                style = {{width : 64, height : '100%'}}>
+                                style = {{width : 64, height : '100%',justifyContent : 'center', alignItems : 'center'}}>
                                 <Image 
                                 source = {ImgConstant.RP_IMG_BACK}
-                                style = {{height : 30, width : 30, justifyContent : 'center', alignSelf : 'center', marginTop : 5 }}
+                                style = {{height : 30, width : 30, }}
                                 />
                                 </TouchableOpacity>
                                 )
