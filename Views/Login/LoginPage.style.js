@@ -1,7 +1,8 @@
 import 
 {
     StyleSheet ,
-    Dimensions
+    Dimensions,
+    Platform
 } from "react-native";
 
 import * as Fonts from "../../Utilities/Constants/FontConstant";
@@ -12,7 +13,7 @@ const LoginStyle = StyleSheet.create(
         {
             height : '100%',
             backgroundColor : 'red',
-            flexDirection : 'column'
+            flexDirection : 'column',
         },
         mainView : 
         {
@@ -21,11 +22,10 @@ const LoginStyle = StyleSheet.create(
         },
         titleView : 
         {
-            height : '50%',
-            marginTop : 64,
             justifyContent : 'center',
             flexDirection : 'row',
-            alignItems : 'flex-end'
+            alignItems : 'flex-end',
+            marginTop : 100
         },
         titleText : 
         {
@@ -41,7 +41,8 @@ const LoginStyle = StyleSheet.create(
         },
         signinStyle : 
         {
-            margin : 30,
+            marginHorizontal : 30,
+            marginTop : 30,
             backgroundColor :'white',
             borderRadius : 6,
             justifyContent : 'center',
@@ -60,14 +61,22 @@ const LoginStyle = StyleSheet.create(
             fontFamily : Fonts.GOTHAM_BOLD,
             fontWeight : 'normal',
             fontSize : 20,
-            alignSelf : 'center'
+            alignItems : 'center',
+            marginTop : 30,
+            marginHorizontal : 30
         },
         forgotTextStyle :
         {
             color : 'white',
-            alignSelf : 'center', 
             fontFamily : Fonts.GOTHAM_BOLD, 
             fontSize : 20,
+            paddingTop :  10,
+            paddingBottom : 10
+        },
+
+        registerStyle : 
+        {
+
         },
         bottomView : 
         {

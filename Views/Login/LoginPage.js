@@ -4,7 +4,8 @@ import
     Text,
     ScrollView ,
     TouchableOpacity,
-    Alert
+    Alert,
+    Platform
 } from "react-native";
 import React, {useEffect, useState} from "react";
 import LoginStyle from "../Login/LoginPage.style";
@@ -67,10 +68,10 @@ const LoginPage = (props) =>
     }, [])
     return (
         <ScrollView 
-        style = {LoginStyle.scrollStyle}
-        bounces = {false}
+        style = {LoginStyle.scrollStyle}        
         >
-        <View style = {LoginStyle.mainView}>
+        {/* <View style = {LoginStyle.mainView}> */}
+        <View style = {{height : Platform.OS == 'ios' ? 64 : 0}}/>
         <View 
         style = {LoginStyle.titleView}> 
         <Text 
@@ -103,18 +104,20 @@ const LoginPage = (props) =>
         {Strings.LP_LOGIN}
         </Text>
         </TouchableOpacity>
+
         <TouchableOpacity
-        onPress = {OnPressForgotPassword}>
+        onPress = {OnPressForgotPassword}
+        style = {LoginStyle.forgotPasswordStyle}>
         <Text style = {LoginStyle.forgotTextStyle}>{Strings.LP_FORGOT}</Text>
         </TouchableOpacity>
 
-        <View style = {{height : 20}}></View>
         <TouchableOpacity
-        onPress = {OnPressRegister}>
+        onPress = {OnPressRegister}
+        style = {[LoginStyle.forgotPasswordStyle, {marginTop : 10}]}>
         <Text style = {LoginStyle.forgotTextStyle}>{Strings.LP_REGISTER}</Text>
         </TouchableOpacity>
 
-        </View>
+        {/* </View> */}
         </ScrollView>
         );
     }

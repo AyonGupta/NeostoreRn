@@ -80,7 +80,8 @@ const RegisterPage = (props) =>
                             <SafeAreaView 
                             style = {{backgroundColor : 'red'}}>
                             <ScrollView 
-                            style = {{backgroundColor : 'red', height : '100%'}}>
+                            style = {{backgroundColor : 'red', height : '100%'}}
+                            contentContainerStyle = {{paddingBottom : 30}}>
                             <Text style = {{marginTop : 44, textAlign : 'center', fontFamily : 'Gotham-Bold', color : 'white', fontSize : 40}}>NeoStore</Text>
                             <GetPadding/>
                             <GetPadding/>

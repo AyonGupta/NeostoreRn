@@ -1,5 +1,6 @@
 import 
 {
+    Platform,
     StyleSheet
 } from "react-native";
 import * as Fonts from "../../../Utilities/Constants/FontConstant";
@@ -12,9 +13,9 @@ const EntryStyle = StyleSheet.create (
             backgroundColor : 'transparent',
             flex : 1,
             flexDirection : 'row',
-            height : 44,
-            marginLeft : 30,
-            marginRight : 30
+            marginHorizontal : 30,
+            paddingTop : Platform.OS == 'ios' ? 10 : -10,
+            paddingBottom : Platform.OS == 'ios' ? 10 : -10,
         }, 
         LeftIcon : 
         {
