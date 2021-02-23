@@ -19,8 +19,8 @@ const LoginPage = (props) =>
 {
     const [userEmail, SetUserEmail] = useState ('')
     const [userPassword, SetUserPassword] = useState ('')
-    let dispatch = useDispatch()
-    let UserData = useSelector (state => state.loginReducer.UserData)
+    const dispatch = useDispatch()
+    const UserData = useSelector (state => state.loginReducer.UserData)
 
     /**
      * Called on click of login
@@ -64,8 +64,10 @@ const LoginPage = (props) =>
     useEffect(()=> 
     {
         if (UserData.status != undefined) 
-        {}
-    }, [])
+        {
+            Alert.alert (Strings.LP_NEOSTORE, 'Welcome ' + UserData.data.first_name + ' ' + UserData.data.first_name)
+        }
+    }, [UserData])
     return (
         <ScrollView 
         style = {LoginStyle.scrollStyle}        

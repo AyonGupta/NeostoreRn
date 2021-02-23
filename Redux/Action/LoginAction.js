@@ -19,7 +19,6 @@ export const PerformLogin = (email, pass) =>
         LoginService.LoginUser(email,pass)
         .then (
             data => {
-                console.log ('login data = ', data)
                 dispatch({
                     type : LOGIN,
                     data : data
