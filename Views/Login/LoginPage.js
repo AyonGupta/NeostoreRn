@@ -3,8 +3,6 @@ import
     View,
     Text,
     ScrollView ,
-    Pressable,
-    Button,
     TouchableOpacity
 } from "react-native";
 import React, {useState} from "react";
@@ -13,7 +11,7 @@ import * as Strings from "../../Utilities/Constants/StringConstant";
 import Entry from "../../Views/SubViews/Entry/Entry";
 import * as ImgConstant from "../../Utilities/Constants/ImageConstant";
 
-const LoginPage = () => 
+const LoginPage = (props) => 
 {
     const [userEmail, SetUserEmail] = useState ('')
     const [userPassword, SetUserPassword] = useState ('')
@@ -29,7 +27,7 @@ const LoginPage = () =>
     }
     const OnPressRegister = () => 
     {
-        console.log ('You have chosen to registre account')
+        props.navigation.navigate ("Register")
     }
     return (
         <ScrollView 
@@ -49,6 +47,7 @@ const LoginPage = () =>
             SetUserEmail (txtEmail)
         }}
         icon = {ImgConstant.LP_IMG_EMAIL}
+        keyboardType = {1}
         />
         <View style = {{height : 20}}/>
         <Entry 

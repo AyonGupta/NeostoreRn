@@ -9,6 +9,18 @@ import EntryStyle from "./Entry.style";
 
 const Entry = (props) => 
 {
+    const keyboardType = (typeKey) => 
+    {
+        switch (typeKey) 
+        {
+            case 1 : 
+            return "email-address"
+            case 2 : 
+            return "number-pad"
+            default : 
+            return "default"
+        }
+    }
     return (
         <View 
         style = {EntryStyle.container}>
@@ -21,6 +33,7 @@ const Entry = (props) =>
             placeholder = {props.placeholder}
             placeholderTextColor = 'white'
             secureTextEntry = {props.isPassword}
+            keyboardType = {keyboardType(props.keyboardType)}
             />
         </View>
     )

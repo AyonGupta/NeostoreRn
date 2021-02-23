@@ -1,4 +1,4 @@
-import { Base_Url } from '../Constant/ServiceConstant'
+import { Base_Url } from '../Utilities/Constants/ServiceConstant'
 const Sub_Base_Url = 'users/login'
 
 /*

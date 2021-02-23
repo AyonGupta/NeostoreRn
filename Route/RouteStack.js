@@ -2,6 +2,9 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import LoginPage from "../Views/Login/LoginPage";
+import RegisterPage from "../Views/Register/RegisterPage";
+import * as Fonts from "../Utilities/Constants/FontConstant";
+import { Text } from "react-native";
 const RouteStack = () => 
 {
     const Stack = createStackNavigator()
@@ -17,7 +20,12 @@ const RouteStack = () =>
                     backgroundColor : 'red'
                     
                 },
-                headerTintColor : '#fff'
+                headerTintColor : '#fff',
+                headerTitleStyle :
+                {
+                    fontSize : 25, 
+                    fontWeight : 'bold'
+                }
             }
         }
         >
@@ -28,6 +36,20 @@ const RouteStack = () =>
 
             </Stack.Screen>
         
+            <Stack.Screen
+            name = "Register"
+            component = {RegisterPage}
+            options = 
+            {
+                {
+                    headerShown : true,
+                    
+                }
+            }
+            >
+
+            </Stack.Screen>
+
         </Stack.Navigator>
         </NavigationContainer>
         )
