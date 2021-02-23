@@ -3,32 +3,68 @@ import
     View,
     Text,
     ScrollView ,
-    TouchableOpacity
+    TouchableOpacity,
+    Alert
 } from "react-native";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import LoginStyle from "../Login/LoginPage.style";
 import * as Strings from "../../Utilities/Constants/StringConstant";
 import Entry from "../../Views/SubViews/Entry/Entry";
 import * as ImgConstant from "../../Utilities/Constants/ImageConstant";
-
+import LoginViewModel from "../../ViewModel/Login/LoginViewModel";
+import { useDispatch, useSelector } from "react-redux";
+import { PerformLogin } from "../../Redux/Action/LoginAction";
 const LoginPage = (props) => 
 {
     const [userEmail, SetUserEmail] = useState ('')
     const [userPassword, SetUserPassword] = useState ('')
-    
+    let dispatch = useDispatch()
+    let UserData = useSelector (state => state.loginReducer.UserData)
+
+    /**
+     * Called on click of login
+     */
     const OnPressLogin = () => 
     {
         console.log (userEmail)
         console.log (userPassword)
+        if (!LoginViewModel.ValidateEmail(userEmail)) 
+        {
+            Alert.alert (Strings.LP_NEOSTORE, Strings.ER_EMAIL)
+            return
+        }
+
+        if (!LoginViewModel.ValidatePassword(userPassword)) 
+        {
+            Alert.alert (Strings.LP_NEOSTORE, Strings.ER_PASSWORD)
+            return
+        }
+
+        dispatch(PerformLogin (userEmail, userPassword))
+
     }
+
+    /**
+     * Called on click of forgot password
+     */
     const OnPressForgotPassword = () => 
     {
         console.log ('Shame that you forgot your password!!')
     }
+
+    /**
+     * Called on click of register
+     */
     const OnPressRegister = () => 
     {
         props.navigation.navigate ("Register")
     }
+
+    useEffect(()=> 
+    {
+        if (UserData.status != undefined) 
+        {}
+    }, [])
     return (
         <ScrollView 
         style = {LoginStyle.scrollStyle}

@@ -74,7 +74,6 @@ const RegisterPage = (props) =>
                                 </TouchableOpacity>
                                 )
                             })
-                            console.log(props)
                         }, [])
                         
                         return (

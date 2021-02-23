@@ -26,7 +26,8 @@ const Entry = (props) =>
         style = {EntryStyle.container}>
             <Image 
             source = {props.icon}
-            style = {EntryStyle.LeftIcon}/>
+            style = {EntryStyle.LeftIcon}
+            />
             <TextInput
             style = {EntryStyle.rightView}
             onChangeText = {props.OnTextChange}

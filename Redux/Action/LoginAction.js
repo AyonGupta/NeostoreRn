@@ -20,14 +20,14 @@ export const PerformLogin = (email, pass) =>
         .then (
             data => {
                 console.log ('login data = ', data)
-                dispatch(  {
+                dispatch({
                     type : LOGIN,
                     data : data
                 })
             }, 
             error => {
                 console.log ('login error = ', error)
-                dispatch(  {
+                dispatch({
                     type : LOGIN_FAIL,
                     data : error
                 })
