@@ -4,21 +4,45 @@ import
     Text,
     TouchableOpacity,
     Image,
-    SafeAreaView
+    SafeAreaView,
+    Alert,
+    ScrollView
 } from "react-native"
 import React, { useState } from "react";
 import { useEffect } from "react";
 import * as ImgConstant from "../../Utilities/Constants/ImageConstant";
 import { StackActions } from "@react-navigation/native";
-import { ScrollView } from "react-native-gesture-handler";
 import * as Strings from "../../Utilities/Constants/StringConstant";
 import RegisterStyle from "./RegisterPage.style";
 import Entry from "../../Views/SubViews/Entry/Entry";
+import { useDispatch, useSelector } from "react-redux";
+import { PerformRegister } from "../../Redux/Action/RegisterAction";
+import RegisterViewModel from "../../ViewModel/Register/RegisterViewModel";
+
 const RegisterPage = (props) => 
 {
+
+    //1. First name
+    const [Fname, SetFname] = useState('')
+    //2. Last name
+    const [Lname, SetLname] = useState('')
+    //3. Email
+    const [Email, SetEmail] = useState('')
+    //4. Password
+    const [Password, SetPassword] = useState('')
+    //5. Confirm Password
+    const [CPassword, SetCPassword] = useState('')
+    //6. Gender
     const [Gender, SetGender] = useState('Male')
+    //7. Mobile Number
+    const [Phone, SetPhone] = useState('')
+    //8. Terms and conditions
     const [TermsSelected, SetTermsSelected] = useState(false)
     
+
+    const dispatch = useDispatch()
+    const UserData = useSelector (state => state.registerReducer.UserData)
+
     const GetPadding = () => {
         return (
             <View style = {{height : 20}}/>
@@ -55,6 +79,46 @@ const RegisterPage = (props) =>
                 </TouchableOpacity>
                 )
             }    
+
+            const OnClickRegister = () => 
+            {
+                //1. First name
+                if (!RegisterViewModel.ValidateFname(Fname)) 
+                {
+                    return
+                }
+                //2. Last name
+                if (!RegisterViewModel.ValidateLname(Lname)) 
+                {
+                    return
+                }
+                //3. Email
+                if (!RegisterViewModel.ValidateEmail(Email)) 
+                {
+                    return
+                }
+                //4. Password
+                if (!RegisterViewModel.ValidatePassword(Password)) 
+                {
+                    return
+                }
+                //5. Confirm Password
+                if (!RegisterViewModel.ValidateCpassword(Password, CPassword)) 
+                {
+                    return
+                }
+                //6. Phone number
+                if (!RegisterViewModel.ValidatePhone(Phone)) 
+                {
+                    return
+                }
+                //7. First name
+                if (!TermsSelected) 
+                {
+                    return
+                }
+                dispatch (PerformRegister (Fname, Lname, Email, Password, Gender, Phone))
+            }
             useEffect (
                 () => 
                 {
@@ -75,7 +139,13 @@ const RegisterPage = (props) =>
                                 )
                             })
                         }, [])
-                        
+                
+                        useEffect (()=> 
+                        {
+                            if (UserData.status != undefined) {
+                                Alert.alert (Strings.LP_NEOSTORE, 'Welcome ' + UserData.data.first_name + ' ' + UserData.data.first_name)
+                            }
+                        }, [UserData])
                         return (
                             <SafeAreaView 
                             style = {{backgroundColor : 'red'}}>
@@ -183,7 +253,8 @@ const RegisterPage = (props) =>
                             {/* Register button */}
                             <GetPadding/>
                             <TouchableOpacity
-                            style = {{marginLeft : 30, marginRight : 30, backgroundColor : 'white', borderRadius : 5, height : 54, justifyContent : 'center', alignItems : 'center'}}>
+                            style = {{marginLeft : 30, marginRight : 30, backgroundColor : 'white', borderRadius : 5, height : 54, justifyContent : 'center', alignItems : 'center'}}
+                            onPress = {OnClickRegister}>
                             <Text style = {{color : 'red', fontFamily : 'Gotham-Bold', fontSize : 25}}>{Strings.RP_REGISTER}</Text>
                             </TouchableOpacity>
                             

@@ -1,0 +1,3 @@
+export const REGISTER = 'REGISTER'
+export const REGISTER_LOADER = 'REGISTER_LOADER'
+export const REGISTER_FAIL= 'REGISTER_FAIL'
