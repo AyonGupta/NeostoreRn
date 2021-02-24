@@ -85,36 +85,43 @@ const RegisterPage = (props) =>
                 //1. First name
                 if (!RegisterViewModel.ValidateFname(Fname)) 
                 {
+                    console.log ('fname error')
                     return
                 }
                 //2. Last name
                 if (!RegisterViewModel.ValidateLname(Lname)) 
                 {
+                    console.log ('lname error')
                     return
                 }
                 //3. Email
                 if (!RegisterViewModel.ValidateEmail(Email)) 
                 {
+                    console.log ('email error')
                     return
                 }
                 //4. Password
                 if (!RegisterViewModel.ValidatePassword(Password)) 
                 {
+                    console.log ('pass error')
                     return
                 }
                 //5. Confirm Password
                 if (!RegisterViewModel.ValidateCpassword(Password, CPassword)) 
                 {
+                    console.log ('cpass error')
                     return
                 }
                 //6. Phone number
                 if (!RegisterViewModel.ValidatePhone(Phone)) 
                 {
+                    console.log ('phone error')
                     return
                 }
                 //7. First name
                 if (!TermsSelected) 
                 {
+                    console.log ('terms error')
                     return
                 }
                 dispatch (PerformRegister (Fname, Lname, Email, Password, Gender, Phone))
@@ -143,7 +150,7 @@ const RegisterPage = (props) =>
                         useEffect (()=> 
                         {
                             if (UserData.status != undefined) {
-                                Alert.alert (Strings.LP_NEOSTORE, 'Welcome ' + UserData.data.first_name + ' ' + UserData.data.first_name)
+                                Alert.alert (Strings.LP_NEOSTORE, 'Welcome ' + UserData.data.first_name + ' ' + UserData.data.LastName)
                             }
                         }, [UserData])
                         return (
@@ -160,7 +167,7 @@ const RegisterPage = (props) =>
                             icon = {ImgConstant.RP_IMG_USERNAME}
                             placeholder = {Strings.RP_FIRSTNAME}
                             OnTextChange = {(FirstName)=> {
-                                console.log(FirstName)
+                                SetFname(FirstName)
                             }}
                             />
                             
@@ -170,7 +177,7 @@ const RegisterPage = (props) =>
                             icon = {ImgConstant.RP_IMG_USERNAME}
                             placeholder = {Strings.RP_LASTTNAME}
                             OnTextChange = {(LastName)=> {
-                                console.log(LastName)
+                                SetLname(LastName)
                             }}
                             />
                             
@@ -180,7 +187,7 @@ const RegisterPage = (props) =>
                             icon = {ImgConstant.LP_IMG_EMAIL}
                             placeholder = {Strings.LP_PLACEHOLDER_EMAIL}
                             OnTextChange = {(Email)=> {
-                                console.log(Email)
+                                SetEmail(Email)
                             }}
                             keyboardType = {1}
                             />
@@ -191,7 +198,7 @@ const RegisterPage = (props) =>
                             icon = {ImgConstant.LP_IMG_PASSWORD}
                             placeholder = {Strings.RP_PASSWORD}
                             OnTextChange = {(Password)=> {
-                                console.log(Password)
+                                SetPassword (Password)
                             }}
                             keyboardType = {1}
                             isPassword = {true}
@@ -203,7 +210,7 @@ const RegisterPage = (props) =>
                             icon = {ImgConstant.LP_IMG_PASSWORD}
                             placeholder = {Strings.RP_CONFIRMPASSWORD}
                             OnTextChange = {(CPassword)=> {
-                                console.log(CPassword)
+                                SetCPassword(CPassword)
                             }}
                             keyboardType = {1}
                             isPassword = {true}
@@ -225,7 +232,7 @@ const RegisterPage = (props) =>
                             placeholder = {Strings.RP_PHONE}
                             keyboardType = {2}
                             OnTextChange = {(Phone)=> {
-                                console.log(Phone)
+                                SetPhone(Phone)
                             }}
                             />
                             
