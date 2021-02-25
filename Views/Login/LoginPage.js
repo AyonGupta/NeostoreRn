@@ -65,7 +65,11 @@ const LoginPage = (props) =>
     {
         if (UserData.status != undefined) 
         {
+            //1. Navigate
             Alert.alert (Strings.LP_NEOSTORE, 'Welcome ' + UserData.data.first_name + ' ' + UserData.data.first_name)
+
+            //2. Save Login Status
+            LoginViewModel.SaveLoginStatus()
         }
     }, [UserData])
     return (

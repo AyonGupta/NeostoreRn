@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-community/async-storage'
 const CommonMethods = 
 {
     CheckEmptyString : (text) => 
@@ -12,6 +13,63 @@ const CommonMethods =
     CheckStringEqual : (text1, text2)  =>
     {
         return text1 == text2
+    },
+    SaveData : async(data, key) => 
+    {
+        try {
+            await AsyncStorage.setItem (key, data, (error) => 
+            {
+                if (error != null){
+                    console.log ('error while saving data = ' + JSON.stringify(error))
+                } else 
+                {
+                    console.log (key + ' saved')
+                }
+            })
+        } catch (error) {
+            console.error(JSON.stringify(error))
+        }
+    },
+    DeleteAllStorage : async () => 
+    {
+        try {
+            await AsyncStorage.clear()
+        } catch (error) {
+            console.error(JSON.stringify(error))
+        }
+    }, 
+    GetLocalItem : async(key) => 
+    {
+        try {
+             await AsyncStorage.getItem (key, (error, value) => 
+             {
+                 if (error == null) 
+                 {
+                    return value
+                 } else {
+                     return null
+                 }
+             })
+        } catch (error) {
+            console.error(JSON.stringify(error))
+        }
+    },
+    DeleteLocalByKey : async (key) => 
+    {
+        try {
+            await AsyncStorage.removeItem (key, (error) => 
+            {
+                if (error != null){
+                    console.log ('error while saving data = ' + JSON.stringify(error))
+                } else 
+                {
+                    console.log (key + ' deleted')
+                }
+            })
+        } catch (error) {
+            
+        }
     }
+
 }
 export default CommonMethods

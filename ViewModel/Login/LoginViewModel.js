@@ -1,14 +1,19 @@
-import CommonMethods from "../../Utilities/Common/CommonMethods";
+import CommonMethods from "../../Utilities/Common/CommonMethods"
+import * as LocalStorageKeys from "../../Utilities/Constants/LocalStorageKeys";
 const LoginViewModel = 
 {
     ValidateEmail : (email) => 
     {
-        CommonMethods.CheckEmailValid(email)
+        return CommonMethods.CheckEmailValid(email)
     },
 
     ValidatePassword : (password) => 
     {
-        CommonMethods.CheckEmptyString(password)
+        return CommonMethods.CheckEmptyString(password)
+    },
+    SaveLoginStatus : () => 
+    {
+        return CommonMethods.SaveData (LocalStorageKeys.KIsLogin, 'true')
     }
 }
 export default LoginViewModel

@@ -1,5 +1,5 @@
 import CommonMethods from "../../Utilities/Common/CommonMethods"
-
+import * as LocalStorageKeys from "../../Utilities/Constants/LocalStorageKeys";
 const RegisterViewModel = 
 {
      ValidateFname : (text) => 
@@ -32,6 +32,10 @@ const RegisterViewModel =
     },
     ValidatePhone : (Phone) => {
         return CommonMethods.CheckEmptyString (Phone)
+    },
+    SetRegisterStatus : () => 
+    {
+        return CommonMethods.SaveData (LocalStorageKeys.KIsLogin, 'true')
     }
 
 }
