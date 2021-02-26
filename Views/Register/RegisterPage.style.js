@@ -87,6 +87,20 @@ const RegisterStyle = StyleSheet.create(
             color : 'red', 
             fontFamily : 'Gotham-Bold', 
             fontSize : 25
+        },
+        genderText :
+        {
+            flex : 0.4, 
+            color : 'white', 
+            fontFamily : 'Gotham-Bold', 
+            fontSize : 20
+        },
+        leftHeader :
+        {
+            width : 64, 
+            height : '100%',
+            justifyContent : 'center', 
+            alignItems : 'center'
         }
     }
 )
