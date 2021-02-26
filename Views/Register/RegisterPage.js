@@ -137,7 +137,7 @@ const RegisterPage = (props) =>
                                 onPress = {()=> {
                                     props.navigation.dispatch (StackActions.pop(1))
                                 }}
-                                style = {{width : 64, height : '100%',justifyContent : 'center', alignItems : 'center'}}>
+                                style = {RegisterStyle.leftHeader}>
                                 <Image 
                                 source = {ImgConstant.RP_IMG_BACK}
                                 style = {{height : 30, width : 30, }}
@@ -155,11 +155,11 @@ const RegisterPage = (props) =>
                         }, [UserData])
                         return (
                             <SafeAreaView 
-                            style = {{backgroundColor : 'red'}}>
+                            style = {RegisterStyle.safeArea}>
                             <ScrollView 
-                            style = {{backgroundColor : 'red', height : '100%'}}
-                            contentContainerStyle = {{paddingBottom : 30}}>
-                            <Text style = {{marginTop : 44, textAlign : 'center', fontFamily : 'Gotham-Bold', color : 'white', fontSize : 40}}>NeoStore</Text>
+                            style = {RegisterStyle.scrollView}
+                            contentContainerStyle = {RegisterStyle.scrollContent}>
+                            <Text style = {RegisterStyle.neostore}>NeoStore</Text>
                             <GetPadding/>
                             <GetPadding/>
                             {/* First name */}
@@ -218,8 +218,8 @@ const RegisterPage = (props) =>
                             
                             {/* Gender */}
                             <GetPadding/>
-                            <View style = {{marginLeft : 30, marginRight : 30, marginTop : -10, height : 44, flexDirection : 'row', alignItems : 'center'}}>
-                            <Text style = {{flex : 0.4, color : 'white', fontFamily : 'Gotham-Bold', fontSize : 20}}> Gender </Text>
+                            <View style = {RegisterStyle.gender}>
+                            <Text style = {RegisterStyle.genderText}> Gender </Text>
                             <GetGenderView title = 'Male'/>
                             <View style = {{width : 30}}/>
                             <GetGenderView title = 'Female'/>
@@ -239,30 +239,30 @@ const RegisterPage = (props) =>
                             
                             {/* Terms and conditions */}
                             <GetPadding/>
-                            <View style = {{marginLeft : 30, marginRight : 30, height : 44, flexDirection : 'row', justifyContent : 'center', alignItems : 'center'}}>
+                            <View style = {RegisterStyle.terms}>
                             <TouchableOpacity
-                            style = {{height : 20, width : 20}}
+                            style = {RegisterStyle.checkbox}
                             onPress = {ToggleTermsFlag}>
                             <Image 
-                            style = {{height : 20, width : 20}}
+                            style = {RegisterStyle.checkbox}
                             source = {TermsSelected ? ImgConstant.RP_IMG_CHECKTERMS : ImgConstant.RP_IMG_UNCHECKTERMS}
                             />
                             </TouchableOpacity>
                             <View style = {{width : 10}}/>
-                            <Text style = {{fontFamily : 'Gotham-Bold', fontSize : 18, color : 'white'}}>{Strings.RP_TERMS_1}</Text>
+                            <Text style = {RegisterStyle.terms}>{Strings.RP_TERMS_1}</Text>
                             <TouchableOpacity
-                            style = {{flexDirection : 'column'}}
+                            style = {}
                             onPress = {()=>{console.log('Terms selected')}}>
-                            <Text style = {{fontFamily : 'Gotham-Bold', fontSize : 18, color : 'white'}}>{Strings.RP_TERMS_2}</Text>
-                            <View style = {{height : 2, backgroundColor : 'white'}}/>
+                            <Text style = {RegisterStyle.termsText2}>{Strings.RP_TERMS_2}</Text>
+                            <View style = {RegisterStyle.underline}/>
                             </TouchableOpacity>
                             </View>
                             {/* Register button */}
                             <GetPadding/>
                             <TouchableOpacity
-                            style = {{marginLeft : 30, marginRight : 30, backgroundColor : 'white', borderRadius : 5, height : 54, justifyContent : 'center', alignItems : 'center'}}
+                            style = {RegisterStyle.register}
                             onPress = {OnClickRegister}>
-                            <Text style = {{color : 'red', fontFamily : 'Gotham-Bold', fontSize : 25}}>{Strings.RP_REGISTER}</Text>
+                            <Text style = {RegisterStyle.regText}>{Strings.RP_REGISTER}</Text>
                             </TouchableOpacity>
                             
                             </ScrollView>
