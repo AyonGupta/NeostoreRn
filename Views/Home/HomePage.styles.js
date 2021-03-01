@@ -14,7 +14,6 @@ const HomePageStyles = StyleSheet.create (
         carouselView : 
         {
             flex : 0.3,
-            backgroundColor : 'yellow',
             justifyContent : 'center',
             alignItems : 'center'
         },

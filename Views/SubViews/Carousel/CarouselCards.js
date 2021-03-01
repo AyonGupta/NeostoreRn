@@ -32,7 +32,7 @@ const CarouselCards = (props) => {
             marginHorizontal: 0,
             backgroundColor: Color.WHITE
           }}
-          containerStyle = {{position : 'absolute', alignSelf : 'center', bottom : 0, justifyContent : 'flex-end'}}
+          containerStyle = {{position : 'absolute', alignSelf : 'center', bottom : -20, justifyContent : 'flex-end'}}
           inactiveDotOpacity={0.4}
           inactiveDotScale={0.6}
           tappableDots={true}
