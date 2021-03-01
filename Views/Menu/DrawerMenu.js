@@ -46,35 +46,41 @@ const DrawerMenu = (props) =>
         () => 
         {
           SetSelectedId(item.id)
-          //props.navigation.navigate ('StoreLocator')
           const Page = DrawerViewModel.OnItemSelected (item.id)
-          props.navigation.navigate (Page[0], {'ProductId' : Page[1]!= undefined ? Page[1] : ''})
+          console.log ('Page = ', Page)
+          if (Page != undefined) 
+          {
+            props.navigation.navigate 
+            (Page.page, 
+              {'ProductId' : Page.id != undefined ? Page.id : ''})
+            }
+            
+          }
         }
-      }
-      style={{ backgroundColor }}
-      />
-      );
-    };
-    
-    
-    return (
-      <SafeAreaView style={styles.container}>
-      <FlatList
-      data={MenuItems}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id}
-      extraData={selectedId}
-      ListHeaderComponent = {DrawerHeader}
-      style = {styles.flatlistBg}
-      ItemSeparatorComponent = {()=> {
-        return (
-          <View style = {{height : 0.5, backgroundColor : 'black'}}>
-
-          </View>
-        )
-      }}
-      />
-      </SafeAreaView>
-      ) 
-    }
-    export default DrawerMenu
+        style={{ backgroundColor }}
+        />
+        );
+      };
+      
+      
+      return (
+        <SafeAreaView style={styles.container}>
+        <FlatList
+        data={MenuItems}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        extraData={selectedId}
+        ListHeaderComponent = {DrawerHeader}
+        style = {styles.flatlistBg}
+        ItemSeparatorComponent = {()=> {
+          return (
+            <View style = {{height : 0.5, backgroundColor : 'black'}}>
+            
+            </View>
+            )
+          }}
+          />
+          </SafeAreaView>
+          ) 
+        }
+        export default DrawerMenu
