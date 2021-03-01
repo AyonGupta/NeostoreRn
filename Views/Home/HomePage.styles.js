@@ -10,12 +10,13 @@ const HomePageStyles = StyleSheet.create (
         {
             height : '100%',
             backgroundColor : Color.WHITE,
-            
         },
         carouselView : 
         {
             flex : 0.3,
-            backgroundColor : 'yellow'
+            backgroundColor : 'yellow',
+            justifyContent : 'center',
+            alignItems : 'center'
         },
         menuOptionView : 
         {
