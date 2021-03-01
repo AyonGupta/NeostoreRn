@@ -23,6 +23,7 @@ const RouteStack = () =>
                         fontSize : 25, 
                         fontWeight : 'bold'
                     }
+                    
                 }
             }
             >

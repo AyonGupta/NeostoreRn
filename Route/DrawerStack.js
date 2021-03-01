@@ -15,7 +15,22 @@ const DrawerStack = () =>
     return (
         <NavigationContainer>
         <Drawer.Navigator
-        drawerContent = {props => <DrawerMenu {...props}/>}>
+        drawerContent = {props => <DrawerMenu {...props}/>}
+        screenOptions = {
+            {
+                headerShown : true,
+                headerStyle : 
+                {
+                    backgroundColor : 'red'
+                },
+                headerTintColor : '#fff',
+                headerTitleStyle :
+                {
+                    fontSize : 25, 
+                    fontWeight : 'bold'
+                }
+            }
+        }>
         <Drawer.Screen 
         name= {RouteConstant.Home}
         component={HomePage}

@@ -9,8 +9,6 @@ const ProductList = ({route, navigation}) =>
     const ProdId = route.params.ProductId
     useEffect (()=> 
     {
-       // console.log (navigation)
-        console.log (ProdId)
     }, [])
     return (
         <View>

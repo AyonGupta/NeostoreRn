@@ -18,7 +18,6 @@ const DrawerViewModel =
     {
         const Items = DrawerViewModel.GetMenuItems()
         const Module = Items.filter (Obj => Obj.id == itemId)[0]
-        console.log (Module.page)
         if (Module != undefined) 
         {
             const returnItem = []
