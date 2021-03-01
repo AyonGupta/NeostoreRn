@@ -4,7 +4,8 @@ import
   SafeAreaView,
   FlatList,
   StyleSheet,
-  StatusBar
+  StatusBar,
+  View
 } from "react-native";
 import DrawerViewModel from "../../ViewModel/Drawer/DrawerViewModel";
 import DrawerHeader from "./DrawerHeader";
@@ -34,7 +35,7 @@ const DrawerMenu = (props) =>
 {
   const [selectedId , SetSelectedId] = useState(-1);
   const renderItem = ({ item }) => {
-    const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
+    const backgroundColor = Colors.MENU_BG
     
     return (
       <DrawerItem
@@ -61,6 +62,13 @@ const DrawerMenu = (props) =>
       extraData={selectedId}
       ListHeaderComponent = {DrawerHeader}
       style = {styles.flatlistBg}
+      ItemSeparatorComponent = {()=> {
+        return (
+          <View style = {{height : 0.5, backgroundColor : 'black'}}>
+
+          </View>
+        )
+      }}
       />
       </SafeAreaView>
       ) 
