@@ -3,39 +3,34 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import LoginPage from "../Views/Login/LoginPage";
 import RegisterPage from "../Views/Register/RegisterPage";
-import * as Fonts from "../Utilities/Constants/FontConstant";
-import { Text } from "react-native";
 const RouteStack = () => 
 {
     const Stack = createStackNavigator()
-    return (
-        <NavigationContainer>
-        <Stack.Navigator 
-        initialRouteName="Login"
-        screenOptions = {
-            {
-                headerShown : false,
-                headerStyle : 
+        return (
+            <NavigationContainer>
+            <Stack.Navigator 
+            initialRouteName="Login"
+            screenOptions = {
                 {
-                    backgroundColor : 'red'
-                    
-                },
-                headerTintColor : '#fff',
-                headerTitleStyle :
-                {
-                    fontSize : 25, 
-                    fontWeight : 'bold'
+                    headerShown : false,
+                    headerStyle : 
+                    {
+                        backgroundColor : 'red'
+                    },
+                    headerTintColor : '#fff',
+                    headerTitleStyle :
+                    {
+                        fontSize : 25, 
+                        fontWeight : 'bold'
+                    }
                 }
             }
-        }
-        >
+            >
             <Stack.Screen
             name = "Login"
             component = {LoginPage}
             >
-
             </Stack.Screen>
-        
             <Stack.Screen
             name = "Register"
             component = {RegisterPage}
@@ -43,18 +38,14 @@ const RouteStack = () =>
             {
                 {
                     headerShown : true,
-                    
                 }
             }
             >
-
             </Stack.Screen>
-
-        </Stack.Navigator>
-        </NavigationContainer>
-        )
+            </Stack.Navigator>
+            </NavigationContainer>
+            )
+        }
         
-    }
-    
-    export default RouteStack
-    
+        export default RouteStack
+        

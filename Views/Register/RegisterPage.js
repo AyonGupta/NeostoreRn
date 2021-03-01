@@ -251,7 +251,7 @@ const RegisterPage = (props) =>
                             <View style = {{width : 10}}/>
                             <Text style = {RegisterStyle.terms}>{Strings.RP_TERMS_1}</Text>
                             <TouchableOpacity
-                            style = {}
+                            style = {{flexDirection : 'column'}}
                             onPress = {()=>{console.log('Terms selected')}}>
                             <Text style = {RegisterStyle.termsText2}>{Strings.RP_TERMS_2}</Text>
                             <View style = {RegisterStyle.underline}/>
