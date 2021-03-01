@@ -5,7 +5,8 @@ import
   FlatList,
   StyleSheet,
   StatusBar,
-  View
+  View,
+  Platform
 } from "react-native";
 import DrawerViewModel from "../../ViewModel/Drawer/DrawerViewModel";
 import DrawerHeader from "./DrawerHeader";
@@ -14,7 +15,7 @@ import * as Colors from "../../Utilities/Constants/ColorConstant";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: Platform.OS == 'ios' ? StatusBar.currentHeight || 0 : 0,
     backgroundColor : Colors.MENU_BG
   },
   item: {
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
 const DrawerMenu = (props) => 
 {
   const [selectedId , SetSelectedId] = useState(-1);
+  const MenuItems = DrawerViewModel.GetMenuItems()
   const renderItem = ({ item }) => {
     const backgroundColor = Colors.MENU_BG
     
@@ -44,7 +46,9 @@ const DrawerMenu = (props) =>
         () => 
         {
           SetSelectedId(item.id)
-          props.navigation.navigate ('ProductList')
+          //props.navigation.navigate ('StoreLocator')
+          const Page = DrawerViewModel.OnItemSelected (item.id)
+          props.navigation.navigate (Page[0], {'ProductId' : Page[1]!= undefined ? Page[1] : ''})
         }
       }
       style={{ backgroundColor }}
@@ -56,7 +60,7 @@ const DrawerMenu = (props) =>
     return (
       <SafeAreaView style={styles.container}>
       <FlatList
-      data={DrawerViewModel.GetMenuItems()}
+      data={MenuItems}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
       extraData={selectedId}
