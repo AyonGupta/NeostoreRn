@@ -1,3 +1,5 @@
 export const APP_BG = '#E91C1A'
 export const MENU_BG = '#333333'
 export const WHITE = 'white'
+export const GREY = '#4f4f4f'
+export const L_GREY = '#7f7f7f'

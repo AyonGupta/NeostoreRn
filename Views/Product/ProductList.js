@@ -1,32 +1,45 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import 
 { 
     View,
     Text,
-    FlatList
+    FlatList,
+    SafeAreaView
 } from "react-native"
 import { useDispatch, useSelector } from "react-redux";
-
-import { GetProductList } from "../../Redux/Action/ProductAction";
-
-const ProductList = ({route, navigation}) => 
-{
-    const ProdId            =   route.params.ProductId
-    const dispatch          =   useDispatch()
-    const ProductListData   =   useSelector (state => state.productReducer.ProductData)
-
-    useEffect (()=> 
+import ProductViewModel from "../../ViewModel/Product/ProductViewModel";
+import ProductStyle from "./ProductList.style";
+import ProductItem from "./ProductItem";
+    
+    const ProductList = ({route, navigation}) => 
     {
-        console.log('Prodct id = ', ProdId)
-        dispatch (GetProductList (ProdId, '10', '1'))
-    }, [ProdId])
+        const ProdId            =   route.params.ProductId
+        const dispatch          =   useDispatch()
+        const ProductListData   =   useSelector (state => state.productReducer.ProductData)
+        const [page, setPage]   =   useState(1)
+        const [limit, setLimit]   =   useState(10)
+        useEffect (()=> 
+        {
+            dispatch (ProductViewModel.GetProductListById(ProdId, limit, page))
+        }, [ProdId])
 
-    console.log (ProductListData)
-
-    return (
-        <View>
-        <Text>{JSON.stringify (ProductListData)}</Text>
-        </View>
-        )
-    }
-    export default ProductList
+        return (    
+            <SafeAreaView>
+            <FlatList 
+            data = {ProductListData.data}
+            keyExtractor = {item => item.id.toString()}
+            renderItem = {data => 
+            <ProductItem
+                name = {data.item.name}
+                image = {data.item.product_images}
+                producer = {data.item.producer}
+                cost = {data.item.cost}
+            />}
+            style = {ProductStyle.flatlist}
+            contentContainerStyle = {{paddingBottom : 84}}
+            />
+            
+            </SafeAreaView>
+            )
+        }
+        export default ProductList
