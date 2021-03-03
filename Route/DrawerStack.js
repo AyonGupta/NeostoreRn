@@ -9,6 +9,7 @@ import MyCart from "../Views/Cart/MyCart";
 import MyAccount from "../Views/Account/MyAccount";
 import StoreLocator from "../Views/Store/StoreLocator";
 import MyOrders from "../Views/Orders/MyOrders";
+import ProductDetailPage from "../Views/ProductDetail/ProductDetailPage";
 const DrawerStack = () => 
 {
     const Drawer = createDrawerNavigator ()
@@ -54,6 +55,10 @@ const DrawerStack = () =>
         <Drawer.Screen 
         name= {RouteConstant.Order} 
         component={MyOrders}
+        />
+        <Drawer.Screen
+        name = {RouteConstant.ProdDetails}
+        component = {ProductDetailPage}
         />
         </Drawer.Navigator>
         </NavigationContainer>

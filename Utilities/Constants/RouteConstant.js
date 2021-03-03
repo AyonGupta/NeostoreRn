@@ -6,5 +6,6 @@ export default RouteConstant =
     Store : 'StoreLocator',
     Account : 'MyAccount',
     Logout : 'Logout',
-    Order : 'MyOrders'
+    Order : 'MyOrders',
+    ProdDetails : 'ProductDetailPage'
 }

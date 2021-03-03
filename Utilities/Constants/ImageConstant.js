@@ -19,3 +19,4 @@ export const HOME_SLIDER_4 = require ('../../Assets/Images/ic_slider_4.jpg')
 
 export const PROD_CHECK_STAR = require('../../Assets/Images/ic_star_check.png')
 export const PROD_UNCHECK_STAR = require('../../Assets/Images/ic_star_unchek.png')
+export const PROD_SHARE = require('../../Assets/Images/ic_share.png')

@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductViewModel from "../../ViewModel/Product/ProductViewModel";
 import ProductStyle from "./ProductList.style";
 import ProductItem from "./ProductItem";
+import RouteConstant from "../../Utilities/Constants/RouteConstant";
 
 const ProductList = ({route, navigation}) => 
 {
@@ -40,9 +41,14 @@ const ProductList = ({route, navigation}) =>
             renderItem = {data => 
                 <ProductItem
                 name = {data.item.name}
+                id = {data.item.id}
                 image = {data.item.product_images}
                 producer = {data.item.producer}
                 cost = {data.item.cost}
+                OnPress = {(id,title) => {
+                    console.log (title)
+                    navigation.navigate (RouteConstant.ProdDetails, {'ProdId' : id, 'title' : title})
+                }}
                 />}
                 style = {ProductStyle.flatlist}
                 contentContainerStyle = {{paddingBottom : 84}}

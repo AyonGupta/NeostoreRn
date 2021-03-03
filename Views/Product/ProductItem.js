@@ -10,6 +10,8 @@ import ProductItemStyle from "./ProductItem.style";
 import * as ImgConstant from "../../Utilities/Constants/ImageConstant";
 const ProductItem = (props) => {
     return (
+        <TouchableOpacity
+        onPress = {()=> {props.OnPress(props.id, props.name)}}>
         <View
         style = {ProductItemStyle.container}>
         <Image
@@ -65,6 +67,7 @@ const ProductItem = (props) => {
         <View style = {ProductItemStyle.bottomLine}>
         </View>
         </View>
+        </TouchableOpacity>
         )
     }
     
