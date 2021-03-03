@@ -16,7 +16,6 @@ const RegisterReducer = (state = initialState, action) => {
             isLoader : false
         }
         case REGISTER_LOADER:
-            console.log ('loader is called')
         return {
             ...state,
             isLoader : true

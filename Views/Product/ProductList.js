@@ -21,7 +21,13 @@ import ProductItem from "./ProductItem";
         useEffect (()=> 
         {
             dispatch (ProductViewModel.GetProductListById(ProdId, limit, page))
+            navigation.setOptions (
+                {
+                    
+                })
         }, [ProdId])
+
+
 
         return (    
             <SafeAreaView>
@@ -38,7 +44,6 @@ import ProductItem from "./ProductItem";
             style = {ProductStyle.flatlist}
             contentContainerStyle = {{paddingBottom : 84}}
             />
-            
             </SafeAreaView>
             )
         }

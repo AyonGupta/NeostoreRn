@@ -16,7 +16,6 @@ const LoginReducer = (state = initialState, action) => {
             isLoader : false
         }
         case LOADER:
-            console.log ('loader is called')
         return {
             ...state,
             isLoader : true
