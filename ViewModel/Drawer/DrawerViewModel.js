@@ -18,23 +18,22 @@ const DrawerViewModel =
     {
         const Items = DrawerViewModel.GetMenuItems()
         const Module = Items.filter (Obj => Obj.id == itemId)[0]
-        console.log ('Item = ', Module.id)
         if (Module != undefined) 
         {
             let returnItem = {}
             switch (Module.id) {
                 case '3':
-                    returnItem = {'page' : Module.page, 'id' : '1'}
+                    returnItem = {'page' : Module.page, 'id' : '1', 'title' : 'Tables'}
                     console.log (returnItem)
                 break
                 case '4' :
-                    returnItem = {'page' : Module.page, 'id' : '3'}
+                    returnItem = {'page' : Module.page, 'id' : '3', 'title' : 'Sofa'}
                     break
                 case '5' :
-                    returnItem = {'page' : Module.page, 'id' : '2'}
+                    returnItem = {'page' : Module.page, 'id' : '2', 'title' : 'Chair'}
                     break
                 case '6' :
-                    returnItem = {'page' : Module.page, 'id' : '4'}
+                    returnItem = {'page' : Module.page, 'id' : '4', 'title' : 'Cupboard'}
                     break
                 default:
                      returnItem = {'page' : Module.page}

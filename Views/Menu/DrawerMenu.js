@@ -47,12 +47,14 @@ const DrawerMenu = (props) =>
         {
           SetSelectedId(item.id)
           const Page = DrawerViewModel.OnItemSelected (item.id)
-          console.log ('Page = ', Page)
           if (Page != undefined) 
           {
             props.navigation.navigate 
             (Page.page, 
-              {'ProductId' : Page.id != undefined ? Page.id : ''})
+              {
+                'ProductId' : Page.id != undefined ? Page.id : '',
+                'title' : Page.title != undefined ? Page.title : ''
+              })
             }
             
           }
