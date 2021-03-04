@@ -1,5 +1,3 @@
-import HomePage from "../../Views/Home/HomePage"
-
 import * as ImgConstant from "../../Utilities/Constants/ImageConstant";
 const HomeViewModel = 
 {

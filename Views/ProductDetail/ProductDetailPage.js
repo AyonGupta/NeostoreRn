@@ -1,7 +1,7 @@
 import React , {useEffect, useState} from "react"
 import 
 {
-    SafeAreaView,
+    TextInput,
     Text,
     View,
     TouchableOpacity,
@@ -15,36 +15,39 @@ import { useDispatch, useSelector } from "react-redux";
 import * as ImgConstant from "../../Utilities/Constants/ImageConstant"
 import ProductDetailPageStyle from "./ProductDetailPage.style"
 import ProductDetailViewModel from "../../ViewModel/ProductDetail/ProductDetailViewModel";
+import BuyPopup from "../SubViews/Popup/Buy/BuyPopup";
 
 const ProductDetailPage = ({route, navigation}) => 
 {
     const ProdId =   route.params.ProdId
     const PageTitle =   route.params.title
     const [selectedIndex, setSelectedIndex] = useState (1)
+    const [buyNowVisible, setBuyNowVisible] = useState (false)
+
     const ProductData   =   useSelector (state => state.productDetailReducer.ProductData)
     const dispatch = useDispatch()
     const OnClickShare = async() => 
     {
-            try {
-              const result = await Share.share({
+        try {
+            const result = await Share.share({
                 message:
-                  'React Native | A framework for building native apps using React',
-              });
-              if (result.action === Share.sharedAction) {
+                'React Native | A framework for building native apps using React',
+            });
+            if (result.action === Share.sharedAction) {
                 if (result.activityType) {
-                  // shared with activity type of result.activityType
+                    // shared with activity type of result.activityType
                 } else {
-                  // shared
+                    // shared
                 }
-              } else if (result.action === Share.dismissedAction) {
+            } else if (result.action === Share.dismissedAction) {
                 // dismissed
-              }
-            } catch (error) {
-              Alert.alert(error.message);
             }
+        } catch (error) {
+            Alert.alert(error.message);
+        }
     }
-
-
+    
+    
     const [selectedImageUri, SetSelectedImageUri] = useState('')
     useEffect (
         () => 
@@ -82,13 +85,24 @@ const ProductDetailPage = ({route, navigation}) =>
                     }, [ProdId])
                     
                     
-    useEffect (()=> 
-    {
-        if (ProductData.product_images != undefined) 
-        {
-            SetSelectedImageUri (ProductData.product_images[0].image)
-        }
-    }, [ProductData.product_images])
+                    useEffect (()=> 
+                    {
+                        if (ProductData.product_images != undefined) 
+                        {
+                            SetSelectedImageUri (ProductData.product_images[0].image)
+                        }
+                    }, [ProductData.product_images])
+                    
+                    
+                    const OnClickRate = () => 
+                    {
+
+                    }
+
+                    const OnClickBuy = () => {
+                        setBuyNowVisible (true)
+                    }
+
                     return (
                         //  <SafeAreaView>
                         <ScrollView 
@@ -96,6 +110,17 @@ const ProductDetailPage = ({route, navigation}) =>
                         style = {ProductDetailPageStyle.scrollView}
                         // bounces = {false}
                         showsVerticalScrollIndicator = {false}>
+
+                        <BuyPopup 
+                        visible = {buyNowVisible} 
+                        name = {ProductData.name}  
+                        OnClose = {()=> 
+                        {
+                            setBuyNowVisible (false)
+                        }}
+                        image = {selectedImageUri}/>
+
+
                         <View
                         style = {ProductDetailPageStyle.topview}>
                         <Text
@@ -217,6 +242,7 @@ const ProductDetailPage = ({route, navigation}) =>
                                 style = {ProductDetailPageStyle.bottomView}>
                                 <TouchableOpacity
                                 style = {ProductDetailPageStyle.buyView}
+                                onPress = {OnClickBuy}
                                 >
                                 <Text
                                 style = {ProductDetailPageStyle.buyText}>
@@ -226,6 +252,7 @@ const ProductDetailPage = ({route, navigation}) =>
                                 
                                 <TouchableOpacity
                                 style = {ProductDetailPageStyle.rateView}
+                                onPress = {OnClickRate}
                                 >
                                 <Text
                                 style = {ProductDetailPageStyle.rateText}>

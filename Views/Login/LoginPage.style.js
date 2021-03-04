@@ -1,12 +1,9 @@
 import 
 {
     StyleSheet ,
-    Dimensions,
-    Platform
 } from "react-native";
 
 import * as Fonts from "../../Utilities/Constants/FontConstant";
-// const GetHeight = Dimensions.get('window').height
 const LoginStyle = StyleSheet.create(
     {
         scrollStyle : 
