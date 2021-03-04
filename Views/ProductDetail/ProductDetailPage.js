@@ -7,7 +7,9 @@ import
     TouchableOpacity,
     Image,
     ScrollView,
-    FlatList
+    FlatList,
+    Share,
+    Alert
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import * as ImgConstant from "../../Utilities/Constants/ImageConstant"
@@ -21,7 +23,28 @@ const ProductDetailPage = ({route, navigation}) =>
     const [selectedIndex, setSelectedIndex] = useState (1)
     const ProductData   =   useSelector (state => state.productDetailReducer.ProductData)
     const dispatch = useDispatch()
-    const OnClickShare = () =>     console.log('Share!!')
+    const OnClickShare = async() => 
+    {
+            try {
+              const result = await Share.share({
+                message:
+                  'React Native | A framework for building native apps using React',
+              });
+              if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                  // shared with activity type of result.activityType
+                } else {
+                  // shared
+                }
+              } else if (result.action === Share.dismissedAction) {
+                // dismissed
+              }
+            } catch (error) {
+              Alert.alert(error.message);
+            }
+    }
+
+
     const [selectedImageUri, SetSelectedImageUri] = useState('')
     useEffect (
         () => 
@@ -61,12 +84,11 @@ const ProductDetailPage = ({route, navigation}) =>
                     
     useEffect (()=> 
     {
-        if (ProductData != undefined) 
+        if (ProductData.product_images != undefined) 
         {
             SetSelectedImageUri (ProductData.product_images[0].image)
-
         }
-    }, [ProductData])
+    }, [ProductData.product_images])
                     return (
                         //  <SafeAreaView>
                         <ScrollView 

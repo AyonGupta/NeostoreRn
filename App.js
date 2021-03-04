@@ -22,7 +22,8 @@ const App = () => {
   })
 
   return (
-    IsLogin ? <DrawerStack/> : RouteViewModel.CheckLoginStatus () ?  <DrawerStack/> : <RouteStack/>
+   // IsLogin ? <DrawerStack/> : RouteViewModel.CheckLoginStatus () ?  <DrawerStack/> : <RouteStack/>
+   <DrawerStack/>
     )
   }
   export default App;
