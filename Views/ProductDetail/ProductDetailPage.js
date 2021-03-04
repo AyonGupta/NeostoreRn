@@ -21,8 +21,8 @@ const ProductDetailPage = ({route, navigation}) =>
     const [selectedIndex, setSelectedIndex] = useState (1)
     const ProductData   =   useSelector (state => state.productDetailReducer.ProductData)
     const dispatch = useDispatch()
-    const OnClickShare = () =>     console.log(ProductData)
-    const [selectedImageUri, SetSelectedImageUri] = useState(undefined)
+    const OnClickShare = () =>     console.log('Share!!')
+    const [selectedImageUri, SetSelectedImageUri] = useState('')
     useEffect (
         () => 
         {
@@ -42,22 +42,31 @@ const ProductDetailPage = ({route, navigation}) =>
                         </TouchableOpacity>
                         )
                     })
+                    
                 }, [])
                 
                 useEffect(()=> {
                     if (ProdId != undefined) 
                     {
-
                         navigation.setOptions (
                             {
                                 title : PageTitle
                             })
-
+                            
                             dispatch (ProductDetailViewModel.GetProductDetailById (ProdId))
-
+                            
                         }
                     }, [ProdId])
                     
+                    
+    useEffect (()=> 
+    {
+        if (ProductData != undefined) 
+        {
+            SetSelectedImageUri (ProductData.product_images[0].image)
+
+        }
+    }, [ProductData])
                     return (
                         //  <SafeAreaView>
                         <ScrollView 
@@ -155,56 +164,56 @@ const ProductDetailPage = ({route, navigation}) =>
                                         SetSelectedImageUri (data.item.image)
                                     }}>
                                     <Image
-                                    style = {{backgroundColor : 'green', flex : 1}}
+                                    style = {{flex : 1}}
                                     source = {
                                         {
-                                           uri : data.item.image 
+                                            uri : data.item.image 
                                         }}/>
+                                        
+                                        </TouchableOpacity>
+                                        )
+                                    }
                                     
-                                    </TouchableOpacity>
-                                    )
                                 }
+                                />
+                                <View
+                                style = {ProductDetailPageStyle.divider}
+                                />    
                                 
+                                
+                                <Text
+                                style = {ProductDetailPageStyle.desc}>Description</Text>
+                                {/* <Text
+                                    style = {ProductDetailPageStyle.descText}
+                                    >
+                                    In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.                            
+                                </Text>  */}
+                                
+                                </View>
+                                {/* Bottom View */}
+                                <View
+                                style = {ProductDetailPageStyle.bottomView}>
+                                <TouchableOpacity
+                                style = {ProductDetailPageStyle.buyView}
+                                >
+                                <Text
+                                style = {ProductDetailPageStyle.buyText}>
+                                Buy Now
+                                </Text>
+                                </TouchableOpacity>
+                                
+                                <TouchableOpacity
+                                style = {ProductDetailPageStyle.rateView}
+                                >
+                                <Text
+                                style = {ProductDetailPageStyle.rateText}>
+                                Rate Now
+                                </Text>
+                                </TouchableOpacity>
+                                
+                                </View>
+                                </ScrollView>
+                                //  </SafeAreaView>
+                                )
                             }
-                            />
-                            <View
-                            style = {ProductDetailPageStyle.divider}
-                            />    
-                            
-                            
-                             {/* <Text
-                            style = {ProductDetailPageStyle.desc}>Description</Text> */}
-                            {/* <Text
-                            style = {ProductDetailPageStyle.descText}
-                            >
-In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.                            
-                            </Text>  */}
-                            
-                            </View>
-                            {/* Bottom View */}
-                            <View
-                            style = {ProductDetailPageStyle.bottomView}>
-                            <TouchableOpacity
-                            style = {ProductDetailPageStyle.buyView}
-                            >
-                            <Text
-                            style = {ProductDetailPageStyle.buyText}>
-                            Buy Now
-                            </Text>
-                            </TouchableOpacity>
-                            
-                            <TouchableOpacity
-                            style = {ProductDetailPageStyle.rateView}
-                            >
-                            <Text
-                            style = {ProductDetailPageStyle.rateText}>
-                            Rate Now
-                            </Text>
-                            </TouchableOpacity>
-                            
-                            </View>
-                            </ScrollView>
-                            //  </SafeAreaView>
-                            )
-                        }
-                        export default ProductDetailPage
+                            export default ProductDetailPage
