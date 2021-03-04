@@ -21,7 +21,7 @@ const ProductDetailPageStyle = StyleSheet.create(
         scrollContent :
         { 
             flexGrow: 0.95 , 
-            justifyContent: 'space-between', 
+            justifyContent: 'space-evenly', 
             flexDirection: 'column' ,
         },
         topview :
@@ -159,7 +159,6 @@ const ProductDetailPageStyle = StyleSheet.create(
         {
             flex : 0.4,
             flexGrow : 0,
-            backgroundColor : 'yellow'
         },
         imgs : 
         {

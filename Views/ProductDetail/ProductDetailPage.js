@@ -9,17 +9,20 @@ import
     ScrollView,
     FlatList
 } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import * as ImgConstant from "../../Utilities/Constants/ImageConstant"
 import ProductDetailPageStyle from "./ProductDetailPage.style"
+import ProductDetailViewModel from "../../ViewModel/ProductDetail/ProductDetailViewModel";
 
 const ProductDetailPage = ({route, navigation}) => 
 {
     const ProdId =   route.params.ProdId
     const PageTitle =   route.params.title
     const [selectedIndex, setSelectedIndex] = useState (1)
-    
-    const OnClickShare = () => console.log ('Share clicked')
-    
+    const ProductData   =   useSelector (state => state.productDetailReducer.ProductData)
+    const dispatch = useDispatch()
+    const OnClickShare = () =>     console.log(ProductData)
+    const [selectedImageUri, SetSelectedImageUri] = useState(undefined)
     useEffect (
         () => 
         {
@@ -44,12 +47,15 @@ const ProductDetailPage = ({route, navigation}) =>
                 useEffect(()=> {
                     if (ProdId != undefined) 
                     {
+
                         navigation.setOptions (
                             {
                                 title : PageTitle
                             })
+
+                            dispatch (ProductDetailViewModel.GetProductDetailById (ProdId))
+
                         }
-                        
                     }, [ProdId])
                     
                     return (
@@ -64,7 +70,7 @@ const ProductDetailPage = ({route, navigation}) =>
                         <Text
                         style = {ProductDetailPageStyle.title}
                         >
-                        6 seater dining table for family 
+                        {ProductData.name}
                         </Text>
                         <Text
                         style = {ProductDetailPageStyle.category}
@@ -79,7 +85,7 @@ const ProductDetailPage = ({route, navigation}) =>
                         <Text
                         style = {ProductDetailPageStyle.producerName}
                         >
-                        Future furniture center
+                        {ProductData.producer}
                         </Text>
                         </View>
                         <View
@@ -111,7 +117,7 @@ const ProductDetailPage = ({route, navigation}) =>
                         <Text
                         style = {ProductDetailPageStyle.price}
                         >
-                        Rs 1000
+                        Rs {ProductData.cost}
                         </Text>
                         
                         <TouchableOpacity
@@ -126,7 +132,7 @@ const ProductDetailPage = ({route, navigation}) =>
                         style = {ProductDetailPageStyle.bannerImage}
                         source = {
                             {
-                                uri : 'http://staging.php-dev.in:8844/trainingapp/uploads/prod_img/thumb/medium/9dc6234da018916e545011fa1.jpeg'
+                                uri : selectedImageUri 
                             }
                         }/>
                         
@@ -134,8 +140,8 @@ const ProductDetailPage = ({route, navigation}) =>
                         style = {ProductDetailPageStyle.flatList}
                         horizontal = {true}
                         showsHorizontalScrollIndicator = {false}
-                        data = {[{'id' : '1'},{'id' : '2'},{'id' : '3'},{'id' : '4'}]}
-                        keyExtractor = {value => value.id}
+                        data = {ProductData.product_images}
+                        keyExtractor = {value => value.id.toString()}
                         renderItem = {data => {
                             
                             return (
@@ -146,8 +152,14 @@ const ProductDetailPage = ({route, navigation}) =>
                                     ]}
                                     onPress = {()=> {
                                         setSelectedIndex (data.item.id)
+                                        SetSelectedImageUri (data.item.image)
                                     }}>
-                                    <Text>{data.item.id}</Text>
+                                    <Image
+                                    style = {{backgroundColor : 'green', flex : 1}}
+                                    source = {
+                                        {
+                                           uri : data.item.image 
+                                        }}/>
                                     
                                     </TouchableOpacity>
                                     )
@@ -160,13 +172,13 @@ const ProductDetailPage = ({route, navigation}) =>
                             />    
                             
                             
+                             {/* <Text
+                            style = {ProductDetailPageStyle.desc}>Description</Text> */}
                             {/* <Text
-                            style = {ProductDetailPageStyle.desc}>Description</Text>
-                            <Text
                             style = {ProductDetailPageStyle.descText}
                             >
 In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.                            
-                            </Text> */}
+                            </Text>  */}
                             
                             </View>
                             {/* Bottom View */}

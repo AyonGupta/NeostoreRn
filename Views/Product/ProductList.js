@@ -46,7 +46,6 @@ const ProductList = ({route, navigation}) =>
                 producer = {data.item.producer}
                 cost = {data.item.cost}
                 OnPress = {(id,title) => {
-                    console.log (title)
                     navigation.navigate (RouteConstant.ProdDetails, {'ProdId' : id, 'title' : title})
                 }}
                 />}

@@ -24,7 +24,6 @@ const DrawerViewModel =
             switch (Module.id) {
                 case '3':
                     returnItem = {'page' : Module.page, 'id' : '1', 'title' : 'Tables'}
-                    console.log (returnItem)
                 break
                 case '4' :
                     returnItem = {'page' : Module.page, 'id' : '3', 'title' : 'Sofa'}

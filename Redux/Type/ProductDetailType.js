@@ -1,0 +1,3 @@
+export const PRODUCT_DETAIL = 'PRODUCT_DETAIL'
+export const LOADER = 'LOADER'
+export const PRODUCT_DETAIL_FAIL= 'PRODUCT_DETAIL_FAIL'
