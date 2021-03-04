@@ -25,7 +25,6 @@ export const GetProductList = (id, limit, page) =>
                 })
             }, 
             error => {
-                console.log ('login error = ', error)
                 dispatch({
                     type : GET_PRODUCT_FAIL,
                     data : error

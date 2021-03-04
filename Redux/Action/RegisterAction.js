@@ -25,7 +25,6 @@ export const PerformRegister = (first_name, last_name, email, password, gender, 
                 })
             }, 
             error => {
-                console.log ('register error = ', error)
                 dispatch({
                     type : REGISTER_FAIL,
                     data : error

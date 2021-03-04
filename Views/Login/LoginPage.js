@@ -27,8 +27,6 @@ const LoginPage = (props) =>
      */
     const OnPressLogin = () => 
     {
-        console.log (userEmail)
-        console.log (userPassword)
         if (!LoginViewModel.ValidateEmail(userEmail)) 
         {
             Alert.alert (Strings.LP_NEOSTORE, Strings.ER_EMAIL)
@@ -60,18 +58,6 @@ const LoginPage = (props) =>
     {
         props.navigation.navigate ("Register")
     }
-
-    useEffect(()=> 
-    {
-        if (UserData.status != undefined) 
-        {
-            //1. Navigate
-            Alert.alert (Strings.LP_NEOSTORE, 'Welcome ' + UserData.data.first_name + ' ' + UserData.data.first_name)
-
-            //2. Save Login Status
-            LoginViewModel.SaveLoginStatus()
-        }
-    }, [UserData])
     return (
         <ScrollView 
         style = {LoginStyle.scrollStyle}        

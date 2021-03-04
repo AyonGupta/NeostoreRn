@@ -19,12 +19,7 @@ const CommonMethods =
         try {
             await AsyncStorage.setItem (key, data, (error) => 
             {
-                if (error != null){
-                    console.log ('error while saving data = ' + JSON.stringify(error))
-                } else 
-                {
-                    console.log (key + ' saved')
-                }
+                console.log (error == undefined ? 'Saved' : 'not saved')
             })
         } catch (error) {
             console.error(JSON.stringify(error))
@@ -69,6 +64,10 @@ const CommonMethods =
         } catch (error) {
             
         }
+    },
+    CheckLoginStatus : () => 
+    {
+
     }
 
 }

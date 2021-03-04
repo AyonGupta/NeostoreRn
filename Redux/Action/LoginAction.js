@@ -1,5 +1,6 @@
 import { LOADER, LOGIN, LOGIN_FAIL } from "../Type/LoginType";
 import LoginService from '../../Service/LoginService'
+import LoginViewModel from "../../ViewModel/Login/LoginViewModel";
 export const PerformLogin = (email, pass) => 
     {
         return dispatch => 
@@ -19,13 +20,15 @@ export const PerformLogin = (email, pass) =>
         LoginService.LoginUser(email,pass)
         .then (
             data => {
+
+                LoginViewModel.SaveLoginStatus()
+
                 dispatch({
                     type : LOGIN,
                     data : data
                 })
             }, 
             error => {
-                console.log ('login error = ', error)
                 dispatch({
                     type : LOGIN_FAIL,
                     data : error

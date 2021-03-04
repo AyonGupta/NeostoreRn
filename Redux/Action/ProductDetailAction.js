@@ -25,7 +25,6 @@ export const GetProductDetail = (id) =>
                 })
             }, 
             error => {
-                console.log ('login error = ', error)
                 dispatch({
                     type : PRODUCT_DETAIL_FAIL,
                     data : error

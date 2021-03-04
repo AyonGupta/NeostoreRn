@@ -11,13 +11,18 @@ import SplashScreen from 'react-native-splash-screen';
 import RouteStack from "./Route/RouteStack";
 import RouteViewModel from "./ViewModel/Route/RouteViewModel";
 import DrawerStack from "./Route/DrawerStack";
+import { useSelector } from 'react-redux';
 const App = () => {
+  
+  const IsLogin = useSelector (state => state.loginReducer.IsUserLogin)
   useEffect (() => 
   {
     SplashScreen.hide()
+    
   })
+
   return (
-    RouteViewModel.CheckLoginStatus () ? <RouteStack/> : <DrawerStack/>
+    IsLogin ? <DrawerStack/> : RouteViewModel.CheckLoginStatus () ?  <DrawerStack/> : <RouteStack/>
     )
   }
   export default App;
