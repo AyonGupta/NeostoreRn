@@ -14,7 +14,18 @@ export const RP_TERMS_2 = "Terms & Conditions"
 export const RP_REGISTER = "REGISTER"
 export const ER_EMAIL = "Please enter valid email"
 export const ER_PASSWORD = "Please enter valid password"
-
-
+export const ERROR_MSG  = 
+{
+    REGISTER : {
+        FNAME : 'Please enter valid first name',
+        LNAME : 'Please enter valid last name',
+        EMAIL : 'Please enter valid email',
+        PASS : 'Please enter valid password',
+        CPASS : 'Passwords do not match',
+        GENDER : 'Please select gender',
+        PHONE : 'Please select phone number',
+        TERMS : 'Please agree to terms and conditions'
+    }
+} 
 
 

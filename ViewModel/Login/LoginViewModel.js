@@ -6,7 +6,7 @@ const LoginViewModel =
     {
         return CommonMethods.CheckEmailValid(email)
     },
-
+    
     ValidatePassword : (password) => 
     {
         return CommonMethods.CheckEmptyString(password)
@@ -14,6 +14,15 @@ const LoginViewModel =
     SaveLoginStatus : () => 
     {
         return CommonMethods.SaveData (LocalStorageKeys.KIsLogin, 'true')
+    },
+    SaveLoginData :  (data, completion) => 
+    {
+        CommonMethods.SaveData (LocalStorageKeys.KUSERDATA,
+            data.toString(),
+            (status) => 
+            {
+                completion (status)
+            })
+        }
     }
-}
-export default LoginViewModel
+    export default LoginViewModel

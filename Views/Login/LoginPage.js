@@ -22,7 +22,15 @@ const LoginPage = (props) =>
     const [userPassword, SetUserPassword] = useState ('')
     const dispatch = useDispatch()
     const IsLoader = useSelector (state => state.loginReducer.isLoader)
-    
+    const ErrorData = useSelector (state => state.loginReducer.errorData)
+
+    useEffect (()=> 
+    {
+        if (ErrorData.state != undefined) 
+        {
+            Alert.alert (Strings.LP_NEOSTORE, ErrorData.message)
+        }
+    }, [ErrorData])
     /**
     * Called on click of login
     */

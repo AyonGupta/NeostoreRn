@@ -56,7 +56,7 @@ const DrawerMenu = (props) =>
             if (Page.id != undefined) 
             {
               if (Page.id === '10') {
-                CommonMethods.DeleteLocalByKey (LocalStorageKeys.KIsLogin)
+                CommonMethods.SaveData (LocalStorageKeys.KIsLogin, 'false')
                 dispatch(DrawerViewModel.Logout())
                 return
               }

@@ -29,7 +29,6 @@ const LoginReducer = (state = initialState, action) => {
 
         }
         case LOGOUT :
-            console.log ('LOGOUT')
             return {
                 ...state,
                 IsUserLogin : false

@@ -14,17 +14,18 @@ const CommonMethods =
     {
         return text1 == text2
     },
-    SaveData : async(key, data) => 
+    SaveData : async(key, data, callback) => 
     {
         try {
-            console.log ('key =', key)
-            console.log ('data =', data) 
             await AsyncStorage.setItem (key, data, (error) => 
             {
-                console.log (error == undefined ? 'Saved' : 'not saved')
+                if (error == undefined) {
+                    callback (true)
+                }
             })
         } catch (error) {
             console.error(JSON.stringify(error))
+            return error
         }
     },
     DeleteAllStorage : async () => 
@@ -35,21 +36,17 @@ const CommonMethods =
             console.error(JSON.stringify(error))
         }
     }, 
-    GetLocalItem : async(key) => 
+    GetLocalItem : async(key, callback) => 
     {
         try {
              await AsyncStorage.getItem (key, (error, value) => 
              {
-                 if (error == null) 
-                 {
-                    return value
-                 } else {
-                     return null
-                 }
+                 callback (error == undefined ? value : error)
              })
         } catch (error) {
-            console.error(JSON.stringify(error))
+            callback(error)
         }
+
     },
     DeleteLocalByKey : async (key) => 
     {

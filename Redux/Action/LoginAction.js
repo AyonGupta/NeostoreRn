@@ -21,12 +21,20 @@ export const PerformLogin = (email, pass) =>
         .then (
             data => {
 
-                LoginViewModel.SaveLoginStatus()
-
-                dispatch({
-                    type : LOGIN,
-                    data : data
-                })
+             LoginViewModel.SaveLoginData(data, (status) => {
+                if (status) {
+                    dispatch({
+                        type : LOGIN,
+                        data : data
+                    })
+                } else {
+                    dispatch({
+                        type : LOGIN_FAIL,
+                        data : error
+                    })
+                }
+             })
+                
             }, 
             error => {
                 dispatch({

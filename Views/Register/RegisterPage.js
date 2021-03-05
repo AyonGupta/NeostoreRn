@@ -85,43 +85,43 @@ const RegisterPage = (props) =>
                 //1. First name
                 if (!RegisterViewModel.ValidateFname(Fname)) 
                 {
-                    console.log ('fname error')
+                    Alert.alert (Strings.LP_NEOSTORE, Strings.ERROR_MSG.REGISTER.FNAME)
                     return
                 }
                 //2. Last name
                 if (!RegisterViewModel.ValidateLname(Lname)) 
                 {
-                    console.log ('lname error')
+                    Alert.alert (Strings.LP_NEOSTORE,Strings.ERROR_MSG.REGISTER.LNAME)
                     return
                 }
                 //3. Email
                 if (!RegisterViewModel.ValidateEmail(Email)) 
                 {
-                    console.log ('email error')
+                    Alert.alert (Strings.LP_NEOSTORE,Strings.ERROR_MSG.REGISTER.EMAIL)
                     return
                 }
                 //4. Password
                 if (!RegisterViewModel.ValidatePassword(Password)) 
                 {
-                    console.log ('pass error')
+                    Alert.alert (Strings.LP_NEOSTORE,Strings.ERROR_MSG.REGISTER.PASS)
                     return
                 }
                 //5. Confirm Password
                 if (!RegisterViewModel.ValidateCpassword(Password, CPassword)) 
                 {
-                    console.log ('cpass error')
+                    Alert.alert (Strings.LP_NEOSTORE,Strings.ERROR_MSG.REGISTER.CPASS)
                     return
                 }
                 //6. Phone number
                 if (!RegisterViewModel.ValidatePhone(Phone)) 
                 {
-                    console.log ('phone error')
+                    Alert.alert (Strings.LP_NEOSTORE,Strings.ERROR_MSG.REGISTER.PHONE)
                     return
                 }
                 //7. First name
                 if (!TermsSelected) 
                 {
-                    console.log ('terms error')
+                    Alert.alert (Strings.LP_NEOSTORE,Strings.ERROR_MSG.REGISTER.TERMS)
                     return
                 }
                 dispatch (PerformRegister (Fname, Lname, Email, Password, Gender, Phone))
@@ -249,7 +249,7 @@ const RegisterPage = (props) =>
                             />
                             </TouchableOpacity>
                             <View style = {{width : 10}}/>
-                            <Text style = {RegisterStyle.terms}>{Strings.RP_TERMS_1}</Text>
+                            <Text style = {RegisterStyle.termsText}>{Strings.RP_TERMS_1}</Text>
                             <TouchableOpacity
                             style = {{flexDirection : 'column'}}
                             onPress = {()=>{console.log('Terms selected')}}>
