@@ -10,6 +10,8 @@ import MyAccount from "../Views/Account/MyAccount";
 import StoreLocator from "../Views/Store/StoreLocator";
 import MyOrders from "../Views/Orders/MyOrders";
 import ProductDetailPage from "../Views/ProductDetail/ProductDetailPage";
+import { createStackNavigator } from '@react-navigation/stack'
+
 const DrawerStack = () => 
 {
     const Drawer = createDrawerNavigator ()
@@ -48,7 +50,7 @@ const DrawerStack = () =>
         name= {RouteConstant.Account} 
         component={MyAccount}
         />
-         <Drawer.Screen 
+        <Drawer.Screen 
         name= {RouteConstant.Store} 
         component={StoreLocator}
         />
@@ -64,5 +66,26 @@ const DrawerStack = () =>
         </NavigationContainer>
         )
     }
-    export default DrawerStack
     
+    
+    const ProdStack = (drawerNav) => {
+        const ProductStack = createDrawerNavigator()
+        return (
+            <ProductStack.Navigator 
+            initialRouteName={RouteConstant.Product}
+            initialRouteKey = {RouteConstant.Product}
+            >
+            <ProductStack.Screen
+            name = {RouteConstant.Product}
+            component = {ProductList}
+            />
+            <ProductStack.Screen
+            name = {RouteConstant.ProdDetails}
+            component = {ProductDetailPage}
+            />
+            </ProductStack.Navigator>
+            )
+            
+        }
+        export default DrawerStack
+        

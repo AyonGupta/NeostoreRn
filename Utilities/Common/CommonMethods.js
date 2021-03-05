@@ -14,9 +14,11 @@ const CommonMethods =
     {
         return text1 == text2
     },
-    SaveData : async(data, key) => 
+    SaveData : async(key, data) => 
     {
         try {
+            console.log ('key =', key)
+            console.log ('data =', data) 
             await AsyncStorage.setItem (key, data, (error) => 
             {
                 console.log (error == undefined ? 'Saved' : 'not saved')

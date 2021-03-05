@@ -15,6 +15,9 @@ import { useSelector } from 'react-redux';
 const App = () => {
   
   const IsLogin = useSelector (state => state.loginReducer.IsUserLogin)
+  const IsLoginAsync = RouteViewModel.CheckLoginStatus ()
+
+  console.log ('isLoginReducer =', IsLogin)
   useEffect (() => 
   {
     SplashScreen.hide()
@@ -22,8 +25,10 @@ const App = () => {
   })
 
   return (
-   // IsLogin ? <DrawerStack/> : RouteViewModel.CheckLoginStatus () ?  <DrawerStack/> : <RouteStack/>
-   <DrawerStack/>
+    //  <RouteStack/>
+    IsLogin ? <DrawerStack/> : IsLoginAsync ?  <DrawerStack/> : <RouteStack/>
+    //IsLogin ? <DrawerStack/> :
+  //  <DrawerStack/>
     )
   }
   export default App;
