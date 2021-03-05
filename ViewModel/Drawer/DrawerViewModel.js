@@ -1,3 +1,4 @@
+import { PerformLogout } from "../../Redux/Action/LogoutAction";
 import RouteConstant from "../../Utilities/Constants/RouteConstant";
 const DrawerViewModel = 
 {
@@ -34,6 +35,9 @@ const DrawerViewModel =
                 case '6' :
                     returnItem = {'page' : Module.page, 'id' : '4', 'title' : 'Cupboard'}
                     break
+                case '10' :
+                    returnItem = {'id' : '10'}
+                    break
                 default:
                      returnItem = {'page' : Module.page}
                      break
@@ -41,6 +45,7 @@ const DrawerViewModel =
 
             return returnItem
         }
-    }
+    },
+    Logout : () => PerformLogout ()
 }
 export default DrawerViewModel

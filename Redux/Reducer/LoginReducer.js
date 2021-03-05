@@ -1,4 +1,5 @@
-import { LOADER, LOGIN, LOGIN_FAIL } from "../Type/LoginType";
+import { LOADER, LOGIN, LOGIN_FAIL } from "../Type/LoginType"
+import { LOGOUT } from "../Type/LogoutType"
 const initialState = {
     UserData : {},
     IsUserLogin : false,
@@ -23,8 +24,16 @@ const LoginReducer = (state = initialState, action) => {
         case LOGIN_FAIL : 
         return {
             ...state,
-            errorData : action.data
+            errorData : action.data,
+            isLoader : false
+
         }
+        case LOGOUT :
+            console.log ('LOGOUT')
+            return {
+                ...state,
+                IsUserLogin : false
+            }
         default :
         return state
     }

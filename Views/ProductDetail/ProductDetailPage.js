@@ -108,7 +108,7 @@ const ProductDetailPage = ({route, navigation}) =>
 
                     useEffect (()=> 
                     {
-                        if (BuyData != undefined) 
+                        if (BuyData.status != undefined) 
                         {
                             Alert.alert (StringConstant.LP_NEOSTORE, "Added to cart successfully")
                         }
@@ -116,7 +116,7 @@ const ProductDetailPage = ({route, navigation}) =>
 
                     useEffect (()=> 
                     {
-                        if (ErrorData != undefined) 
+                        if (ErrorData.status != undefined) 
                         {
                             Alert.alert (StringConstant.LP_NEOSTORE, ErrorData.toString())
                         }

@@ -7,11 +7,14 @@ import
   StatusBar,
   View,
   Platform
-} from "react-native";
-import DrawerViewModel from "../../ViewModel/Drawer/DrawerViewModel";
-import DrawerHeader from "./DrawerHeader";
-import DrawerItem from "./DrawerItems";
-import * as Colors from "../../Utilities/Constants/ColorConstant";
+} from "react-native"
+import DrawerViewModel from "../../ViewModel/Drawer/DrawerViewModel"
+import DrawerHeader from "./DrawerHeader"
+import DrawerItem from "./DrawerItems"
+import * as Colors from "../../Utilities/Constants/ColorConstant"
+import { useDispatch } from "react-redux"
+import CommonMethods from "../../Utilities/Common/CommonMethods"
+import * as LocalStorageKeys from "../../Utilities/Constants/LocalStorageKeys";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -36,6 +39,7 @@ const DrawerMenu = (props) =>
 {
   const [selectedId , SetSelectedId] = useState(-1);
   const MenuItems = DrawerViewModel.GetMenuItems()
+  const dispatch = useDispatch ()
   const renderItem = ({ item }) => {
     const backgroundColor = Colors.MENU_BG
     
@@ -49,6 +53,14 @@ const DrawerMenu = (props) =>
           const Page = DrawerViewModel.OnItemSelected (item.id)
           if (Page != undefined) 
           {
+            if (Page.id != undefined) 
+            {
+              if (Page.id === '10') {
+                CommonMethods.DeleteLocalByKey (LocalStorageKeys.KIsLogin)
+                dispatch(DrawerViewModel.Logout())
+                return
+              }
+            }
             props.navigation.navigate 
             (Page.page, 
               {

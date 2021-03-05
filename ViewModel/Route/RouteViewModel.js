@@ -8,7 +8,6 @@ const RouteViewModel =
     {
         // console.log('async storage login key = ', CommonMethods.GetLocalItem (LocalStorageKeys.KIsLogin))
         const isLogin =  await CommonMethods.GetLocalItem (LocalStorageKeys.KIsLogin) 
-        console.log ('is login async flag = ', isLogin === 'true')
         return isLogin === 'true'
     }
 }

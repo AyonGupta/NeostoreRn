@@ -17,16 +17,14 @@ const App = () => {
   const IsLogin = useSelector (state => state.loginReducer.IsUserLogin)
   const IsLoginAsync = RouteViewModel.CheckLoginStatus ()
 
-  console.log ('isLoginReducer =', IsLogin)
   useEffect (() => 
   {
     SplashScreen.hide()
-    
   })
 
   return (
-    //  <RouteStack/>
-    IsLogin ? <DrawerStack/> : IsLoginAsync ?  <DrawerStack/> : <RouteStack/>
+      <RouteStack/>
+    // IsLogin ? <DrawerStack/> : IsLoginAsync ?  <DrawerStack/> : <RouteStack/>
     //IsLogin ? <DrawerStack/> :
   //  <DrawerStack/>
     )
