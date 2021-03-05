@@ -9,6 +9,7 @@ import
     Text,
     TouchableOpacity,
     SafeAreaView,
+    ScrollView,
     KeyboardAvoidingView
 } from "react-native"
 
@@ -21,7 +22,13 @@ const BuyPopup = (props) =>
     
     const [quantity, setQuantity] = useState('')
     return (
-       <KeyboardAvoidingView style={BuyPopupStyle.container1} contentContainerStyle={BuyPopupStyle.container1} behavior={'position'}>
+        
+        <KeyboardAvoidingView 
+        style={BuyPopupStyle.container1} 
+        contentContainerStyle={BuyPopupStyle.container1} 
+        behavior={'padding'}
+        
+        >
         <Modal
         animationType="fade"
         transparent={true}
@@ -29,6 +36,11 @@ const BuyPopup = (props) =>
         onRequestClose={() => props.OnClose(quantity)}
         style = {{justifyContent : 'center', alignItems : 'center'}}
         >
+        <View
+        style = {BuyPopupStyle.blurBg}>
+        </View>
+        <ScrollView
+        contentContainerStyle = {{paddingTop : 64}}>
         <View
         style = {BuyPopupStyle.bg}>
         <View
@@ -75,8 +87,10 @@ const BuyPopup = (props) =>
         </View>
         </View>
         
+        </ScrollView>
         </Modal>
         </KeyboardAvoidingView>
+        
         )
     }
     export default BuyPopup

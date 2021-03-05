@@ -5,17 +5,28 @@ import { StyleSheet, Dimensions } from "react-native";
 import  * as ColorConstant from "../../../../Utilities/Constants/ColorConstant"
 import  * as FontConstant from "../../../../Utilities/Constants/FontConstant";
 
+const Dimen = Dimensions.get ('window')
 const BuyPopupStyle = StyleSheet.create (
     {
+        blurBg :
+        {
+            backgroundColor : 'black',
+            opacity : 0.5,
+            height : '100%',
+            width : '100%',
+            position :'absolute'
+        },
         bg : 
         {
             justifyContent : 'center',
             alignItems : 'center',
+            overflow : 'hidden',
+            flex : 1
         },
         container :
         {
-            height : '80%',
-            width : '90%',
+            height : Dimen.height * 0.8,
+            width : Dimen.width * 0.9,
             borderRadius : 6,
             backgroundColor : ColorConstant.WHITE,
             alignItems : 'center',
@@ -53,8 +64,8 @@ const BuyPopupStyle = StyleSheet.create (
         {
             borderWidth : 1,
             borderColor : ColorConstant.L_GREY,
-            height : '10%',
-            width : '40%',
+            height : 40,
+            width : 100,
             margin : 10
         },
         qty :
@@ -92,7 +103,6 @@ const BuyPopupStyle = StyleSheet.create (
           modalContainer: {
             height: Dimensions.get('window').height * .3,
             width: Dimensions.get('window').width,
-            backgroundColor: 'red'
           }
 
     })
