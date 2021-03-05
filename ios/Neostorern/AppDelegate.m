@@ -3,7 +3,7 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-
+#import <RNSplashScreen.h>
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
 #import <FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h>
@@ -43,6 +43,16 @@ static void InitializeFlipper(UIApplication *application) {
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  [RNSplashScreen show];
+
+  //  for(NSString *fontfamilyname in [UIFont familyNames]) {
+  //    NSLog(@"family:'%@'",fontfamilyname);
+  //    for(NSString *fontName in [UIFont fontNamesForFamilyName:fontfamilyname]) {
+  //        NSLog(@"\tfont:'%@'",fontName);
+  //    }
+  //    NSLog(@"-------------");
+ //}
+
   return YES;
 }
 

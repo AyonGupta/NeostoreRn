@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Neostorern.iml" filepath="$PROJECT_DIR$/.idea/modules/Neostorern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Neostorern.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Neostorern.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1627141557/Neostorern.react-native-community_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/-1627141557/Neostorern.react-native-community_async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2026192904/Neostorern.react-native-community_masked-view.iml" filepath="$PROJECT_DIR$/.idea/modules/2026192904/Neostorern.react-native-community_masked-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2089878065/Neostorern.react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-2089878065/Neostorern.react-native-gesture-handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/770964205/Neostorern.react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/770964205/Neostorern.react-native-reanimated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1971724680/Neostorern.react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/-1971724680/Neostorern.react-native-safe-area-context.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-984976240/Neostorern.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/-984976240/Neostorern.react-native-screens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-733521957/Neostorern.react-native-splash-screen.iml" filepath="$PROJECT_DIR$/.idea/modules/-733521957/Neostorern.react-native-splash-screen.iml" />
+    </modules>
+  </component>
+</project>
