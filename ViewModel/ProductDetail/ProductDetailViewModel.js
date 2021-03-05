@@ -1,8 +1,9 @@
 
-import { GetProductDetail } from "../../Redux/Action/ProductDetailAction";
+import { AddToCart, GetProductDetail,  } from "../../Redux/Action/ProductDetailAction";
 const ProductDetailViewModel = 
 {
-    GetProductDetailById : (id) => GetProductDetail (id)
+    GetProductDetailById : (id) => GetProductDetail (id),
+    Buy : (id, quantity) => AddToCart (id, quantity)
 
 }
 export default ProductDetailViewModel

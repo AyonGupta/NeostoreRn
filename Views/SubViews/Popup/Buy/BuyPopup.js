@@ -71,7 +71,7 @@ const BuyPopup = (props) =>
         style = {BuyPopupStyle.qty}
         keyboardType = 'number-pad'
         onChangeText = {(text) => {
-            console.log (text)
+            setQuantity(text)
         }}/>
         </View>
         

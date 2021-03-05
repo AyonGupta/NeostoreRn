@@ -1,5 +1,5 @@
 import ProductDetailService from '../../Service/ProductDetailService'
-import { PRODUCT_DETAIL_FAIL, LOADER, PRODUCT_DETAIL } from "../Type/ProductDetailType";
+import { PRODUCT_DETAIL_FAIL, LOADER, PRODUCT_DETAIL, BUY_FAIL, BUY   } from "../Type/ProductDetailType";
 export const GetProductDetail = (id) => 
     {
         return dispatch => 
@@ -37,4 +37,38 @@ export const GetProductDetail = (id) =>
         return {
             type : LOADER
         }
+    }
+
+    export const AddToCart = (id, quantity) =>
+    {
+        return dispatch =>
+        {
+            dispatch (ShowLoader)
+            dispatch (AsynAddToCart (id, quantity))
+
+        }
+    }
+
+    const AsynAddToCart = (id, quantity) => async dispatch =>
+    {
+        ProductDetailService.AddToCart (id, quantity)
+        .then (
+            data =>
+            {
+                dispatch (
+                    {
+                        type : BUY,
+                        data : data
+                    }
+                )
+            },
+            error => {
+                dispatch (
+                    {
+                        type : BUY_FAIL,
+                        data : error
+                    }
+                )
+            }
+        )
     }

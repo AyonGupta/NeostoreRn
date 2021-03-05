@@ -1,6 +1,5 @@
-import ProductDetailService from '../../Service/ProductDetailService';
 import ProductService from '../../Service/ProductService'
-import { GET_PRODUCT, LOADER, GET_PRODUCT_FAIL, BUY, BUY_FAIL } from "../Type/ProductType";
+import { GET_PRODUCT, LOADER, GET_PRODUCT_FAIL} from "../Type/ProductType";
 export const GetProductList = (id, limit, page) => 
     {
         return dispatch => 
@@ -39,38 +38,4 @@ export const GetProductList = (id, limit, page) =>
             type : LOADER
         }
     }
-
     
-    export const AddToCart = (id, quantity) =>
-    {
-        return dispatch =>
-        {
-            dispatch (ShowLoader)
-            dispatch (AsynAddToCart (id, quantity))
-
-        }
-    }
-
-    const AsynAddToCart = (id, quantity) => 
-    {
-        ProductDetailService.AddToCart (id, quantity)
-        .then (
-            data =>
-            {
-                dispatch (
-                    {
-                        type : BUY,
-                        data : data
-                    }
-                )
-            },
-            error => {
-                dispatch (
-                    {
-                        type : BUY_FAIL,
-                        data : error
-                    }
-                )
-            }
-        )
-    }

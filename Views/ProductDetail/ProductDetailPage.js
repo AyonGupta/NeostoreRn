@@ -16,7 +16,7 @@ import * as ImgConstant from "../../Utilities/Constants/ImageConstant"
 import ProductDetailPageStyle from "./ProductDetailPage.style"
 import ProductDetailViewModel from "../../ViewModel/ProductDetail/ProductDetailViewModel";
 import BuyPopup from "../SubViews/Popup/Buy/BuyPopup";
-
+import * as StringConstant from "../../Utilities/Constants/StringConstant";
 const ProductDetailPage = ({route, navigation}) => 
 {
     const ProdId =   route.params.ProdId
@@ -25,6 +25,9 @@ const ProductDetailPage = ({route, navigation}) =>
     const [buyNowVisible, setBuyNowVisible] = useState (false)
 
     const ProductData   =   useSelector (state => state.productDetailReducer.ProductData)
+    const BuyData   =   useSelector (state => state.productDetailReducer.BuyData)
+    const ErrorData   =   useSelector (state => state.productDetailReducer.errorData)
+
     const dispatch = useDispatch()
     const OnClickShare = async() => 
     {
@@ -103,6 +106,22 @@ const ProductDetailPage = ({route, navigation}) =>
                         setBuyNowVisible (true)
                     }
 
+                    useEffect (()=> 
+                    {
+                        if (BuyData != undefined) 
+                        {
+                            Alert.alert (StringConstant.LP_NEOSTORE, "Added to cart successfully")
+                        }
+                    }, [BuyData])
+
+                    useEffect (()=> 
+                    {
+                        if (ErrorData != undefined) 
+                        {
+                            Alert.alert (StringConstant.LP_NEOSTORE, ErrorData.toString())
+                        }
+                    }, [ErrorData])
+
                     return (
                         //  <SafeAreaView>
                         <ScrollView 
@@ -114,13 +133,18 @@ const ProductDetailPage = ({route, navigation}) =>
                         <BuyPopup 
                         visible = {buyNowVisible} 
                         name = {ProductData.name}  
-                        OnClose = {()=> 
+                        OnClose = {(quantity)=> 
                         {
                             setBuyNowVisible (false)
+                            
+                            if (quantity != undefined) 
+                            {
+                                if (quantity.length > 0) {
+                                    dispatch (ProductDetailViewModel.Buy (ProdId, quantity))
+                                }
+                            }
                         }}
                         image = {selectedImageUri}/>
-
-
                         <View
                         style = {ProductDetailPageStyle.topview}>
                         <Text

@@ -73,7 +73,8 @@ const BuyPopupStyle = StyleSheet.create (
             fontSize : 20,
             fontFamily : FontConstant.GOTHAM_BOLD,
             flex : 1,
-            textAlign : 'center'
+            textAlign : 'center',
+            padding : 5
         },
         buyView : 
         {

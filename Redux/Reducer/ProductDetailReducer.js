@@ -1,8 +1,9 @@
-import { PRODUCT_DETAIL } from "../Type/ProductDetailType";
+import { PRODUCT_DETAIL, BUY, BUY_FAIL, PRODUCT_DETAIL_FAIL } from "../Type/ProductDetailType";
 const initialState = {
     ProductData : {},
     isLoader : false,
-    errorData : {}
+    errorData : {},
+    BuyData : {}
 }
 
 const ProductDetailReducer = (state = initialState, action) => {
@@ -13,6 +14,19 @@ const ProductDetailReducer = (state = initialState, action) => {
             ProductData : action.data.data,
             isLoader : false
         }
+        case BUY :
+            return {
+                ...state,
+                BuyData : action.data,
+                isLoader : false
+            }
+            case BUY_FAIL :
+                case PRODUCT_DETAIL_FAIL:
+                return {
+                    ...state,
+                    errorData : action.data,
+                    isLoader : false
+                }
         default : 
         isLoader = true
         return state

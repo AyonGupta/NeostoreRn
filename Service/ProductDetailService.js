@@ -27,12 +27,16 @@ const ProductDetailService =
     AddToCart : (id, quantity) => 
     {
         let url = Base_Url + Sub_Base_Url.BUY
+        console.log ('url =', url)
+        console.log ('pord id =', id)
+        console.log ('quantity =', quantity)
+
         let formData = new FormData()
         formData.append ('product_id', id)
         formData.append ('quantity', quantity)
         const requestOptions = {
             method: 'POST',
-            headers: {'Content-Type': 'multipart/form-data', 'access_token' : '123456'},
+            headers: {'Content-Type': 'multipart/form-data', 'access_token' : '60363d1f0f412'},
             body: formData
         };
 
