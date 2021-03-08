@@ -16,11 +16,17 @@ import ProductDetailPageStyle from "./ProductDetailPage.style";
 import ProductDetailViewModel from "../../ViewModel/ProductDetail/ProductDetailViewModel";
 import BuyPopup from "../SubViews/Popup/Buy/BuyPopup";
 import * as StringConstant from "../../Utilities/Constants/StringConstant";
+
+import LoaderPage from "../SubViews/Loader/LoaderPage";
+
+
 const ProductDetailPage = ({ route, navigation }) => {
   const ProdId = route.params.ProdId;
   const PageTitle = route.params.title;
   const [selectedIndex, setSelectedIndex] = useState(1);
   const [buyNowVisible, setBuyNowVisible] = useState(false);
+  const IsLoader = useSelector (state => state.productDetailReducer.isLoader)
+
 
   const ProductData = useSelector(
     (state) => state.productDetailReducer.ProductData
@@ -112,6 +118,7 @@ const ProductDetailPage = ({ route, navigation }) => {
       // bounces = {false}
       showsVerticalScrollIndicator={false}
     >
+        <LoaderPage visible = {IsLoader}/>
       <BuyPopup
         visible={buyNowVisible}
         name={ProductData.name}
