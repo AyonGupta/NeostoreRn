@@ -27,7 +27,6 @@ const ProductDetailService =
     AddToCart : (id, quantity) => 
     {
         let url = Base_Url + Sub_Base_Url.BUY
-
         let formData = new FormData()
         formData.append ('product_id', id)
         formData.append ('quantity', quantity)

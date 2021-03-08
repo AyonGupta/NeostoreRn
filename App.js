@@ -20,7 +20,9 @@ const App = () => {
   })
   
   return (
-    IsLogin ? <DrawerStack/> : <RouteStack/> 
+    // IsLogin ? <DrawerStack/> : <RouteStack/> 
+    <DrawerStack/> 
+
     )
   }
   export default App;

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import 
 {
   SafeAreaView,
@@ -12,9 +12,11 @@ import DrawerViewModel from "../../ViewModel/Drawer/DrawerViewModel"
 import DrawerHeader from "./DrawerHeader"
 import DrawerItem from "./DrawerItems"
 import * as Colors from "../../Utilities/Constants/ColorConstant"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import CommonMethods from "../../Utilities/Common/CommonMethods"
 import * as LocalStorageKeys from "../../Utilities/Constants/LocalStorageKeys";
+import { useIsDrawerOpen } from '@react-navigation/drawer';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -40,9 +42,10 @@ const DrawerMenu = (props) =>
   const [selectedId , SetSelectedId] = useState(-1);
   const MenuItems = DrawerViewModel.GetMenuItems()
   const dispatch = useDispatch ()
+  const AccountData = useSelector (state => state.myAccountReducer.UserData)
+
   const renderItem = ({ item }) => {
     const backgroundColor = Colors.MENU_BG
-    
     return (
       <DrawerItem
       item={item}
@@ -67,7 +70,7 @@ const DrawerMenu = (props) =>
                 'ProductId' : Page.id != undefined ? Page.id : '',
                 'title' : Page.title != undefined ? Page.title : ''
               })
-            
+              
             }
             
           }
@@ -78,6 +81,20 @@ const DrawerMenu = (props) =>
       };
       
       
+      const isDrawerOpen = useIsDrawerOpen();
+      
+      useEffect (()=> 
+      {
+        if (isDrawerOpen) 
+        {
+          dispatch (DrawerViewModel.GetAccountDetails())
+        }
+      }, [isDrawerOpen])
+      
+
+      useEffect (()=>{
+      }, [AccountData])
+
       return (
         <SafeAreaView style={styles.container}>
         <FlatList
@@ -90,7 +107,6 @@ const DrawerMenu = (props) =>
         ItemSeparatorComponent = {()=> {
           return (
             <View style = {{height : 0.5, backgroundColor : 'black'}}>
-            
             </View>
             )
           }}

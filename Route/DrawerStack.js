@@ -10,7 +10,6 @@ import MyAccount from "../Views/Account/MyAccount";
 import StoreLocator from "../Views/Store/StoreLocator";
 import MyOrders from "../Views/Orders/MyOrders";
 import ProductDetailPage from "../Views/ProductDetail/ProductDetailPage";
-import { createStackNavigator } from '@react-navigation/stack'
 
 const DrawerStack = () => 
 {

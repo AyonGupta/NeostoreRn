@@ -1,4 +1,5 @@
 import { PerformLogout } from "../../Redux/Action/LogoutAction";
+import { GetAccountDetail } from "../../Redux/Action/MyAccountAction";
 import RouteConstant from "../../Utilities/Constants/RouteConstant";
 const DrawerViewModel = 
 {
@@ -46,6 +47,7 @@ const DrawerViewModel =
             return returnItem
         }
     },
-    Logout : () => PerformLogout ()
+    Logout : () => PerformLogout (),
+    GetAccountDetails  : () => GetAccountDetail ()
 }
 export default DrawerViewModel
