@@ -21,7 +21,7 @@ const App = () => {
   
   return (
     // IsLogin ? <DrawerStack/> : <RouteStack/> 
-    <RouteStack/> 
+    <DrawerStack/> 
 
     )
   }

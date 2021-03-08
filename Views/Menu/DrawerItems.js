@@ -15,7 +15,6 @@ const DrawerItem = ({ item, onPress, style }) =>
 {
     useEffect (()=> 
     {
-        console.log(item)
     }, [])
     return (
         <TouchableOpacity 

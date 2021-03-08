@@ -11,6 +11,7 @@ import ProductViewModel from "../../ViewModel/Product/ProductViewModel";
 import ProductStyle from "./ProductList.style";
 import ProductItem from "./ProductItem";
 import RouteConstant from "../../Utilities/Constants/RouteConstant";
+import LoaderPage from "../SubViews/Loader/LoaderPage";
 
 const ProductList = ({route, navigation}) => 
 {
@@ -19,6 +20,8 @@ const ProductList = ({route, navigation}) =>
     const ProductListData   =   useSelector (state => state.productReducer.ProductData)
     const [page, setPage]   =   useState(1)
     const [limit, setLimit]   =   useState(10)
+    const IsLoader = useSelector (state => state.productReducer.isLoader)
+    
     useEffect (()=> 
     {
         if (ProdId != undefined) 
@@ -35,6 +38,7 @@ const ProductList = ({route, navigation}) =>
         
         return (    
             <SafeAreaView>
+            <LoaderPage visible = {IsLoader}/>
             <FlatList 
             data = {ProductListData.data}
             keyExtractor = {item => item.id.toString()}
