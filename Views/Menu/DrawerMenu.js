@@ -40,7 +40,10 @@ const styles = StyleSheet.create({
 const DrawerMenu = (props) => 
 {
   const [selectedId , SetSelectedId] = useState(-1);
-  const MenuItems = DrawerViewModel.GetMenuItems()
+  const [refresh , SetRefresh] = useState(false);
+  const [MenuItems , SetMenuItems] = useState(undefined);
+
+  //let MenuItems = DrawerViewModel.GetMenuItems()
   const dispatch = useDispatch ()
   const AccountData = useSelector (state => state.myAccountReducer.UserData)
 
@@ -87,12 +90,23 @@ const DrawerMenu = (props) =>
       {
         if (isDrawerOpen) 
         {
+          SetMenuItems(DrawerViewModel.GetMenuItems())
           dispatch (DrawerViewModel.GetAccountDetails())
         }
       }, [isDrawerOpen])
       
 
       useEffect (()=>{
+        if (AccountData.data != undefined) 
+        {
+          if (AccountData.data.total_carts > 0) {
+            MenuItems[1].badge = AccountData.data.total_carts
+          }
+          if (AccountData.data.total_orders > 0) {
+            MenuItems[8].badge = AccountData.data.total_orders
+          }
+          SetRefresh (!refresh)
+        }
       }, [AccountData])
 
       return (
@@ -101,7 +115,7 @@ const DrawerMenu = (props) =>
         data={MenuItems}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        extraData={selectedId}
+        extraData={refresh}
         ListHeaderComponent = {DrawerHeader}
         style = {styles.flatlistBg}
         ItemSeparatorComponent = {()=> {
