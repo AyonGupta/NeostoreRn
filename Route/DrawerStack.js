@@ -5,7 +5,7 @@ import ProductList from "../Views/Product/ProductList";
 import { NavigationContainer } from '@react-navigation/native'
 import DrawerMenu from "../Views/Menu/DrawerMenu"
 import RouteConstant from "../Utilities/Constants/RouteConstant";
-import MyCart from "../Views/Cart/MyCart";
+import MyCartPage from "../Views/Cart/MyCartPage";
 import MyAccount from "../Views/Account/MyAccount";
 import StoreLocator from "../Views/Store/StoreLocator";
 import MyOrders from "../Views/Orders/MyOrders";
@@ -43,7 +43,7 @@ const DrawerStack = () =>
         />
         <Drawer.Screen 
         name= {RouteConstant.Cart} 
-        component={MyCart}
+        component={MyCartPage}
         />
         <Drawer.Screen 
         name= {RouteConstant.Account} 

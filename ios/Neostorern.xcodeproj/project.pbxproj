@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* NeostorernTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* NeostorernTests.m */; };
+		03CB7E9E103446E29D498F3A /* GothamBook.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DBDFCFC03814114BF23BAB1 /* GothamBook.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -16,13 +17,12 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* NeostorernTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* NeostorernTests.m */; };
 		3124B951237743FC20290041 /* libPods-Neostorern-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CF2E6247BE6F2AFFD5A50F /* libPods-Neostorern-tvOS.a */; };
+		7DB5B49CF6D741478589550B /* GothamMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 335D1642A741457280C67045 /* GothamMedium.ttf */; };
+		7FB94ECF45E348BC964397D9 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBFBE8BC00B84EA4A8E20714 /* Gotham-Bold.otf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		90A424D5F53ADEE01385C757 /* libPods-Neostorern-NeostorernTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0D27D237EDCF6E7873B47E /* libPods-Neostorern-NeostorernTests.a */; };
 		995C7067E3B33CEFEF0EE2F3 /* libPods-Neostorern.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 732B079629E4250E9450438E /* libPods-Neostorern.a */; };
 		F90769CF0F5B137205D6235C /* libPods-Neostorern-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1C7B4DBF419CBC40A24E69 /* libPods-Neostorern-tvOSTests.a */; };
-		7FB94ECF45E348BC964397D9 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBFBE8BC00B84EA4A8E20714 /* Gotham-Bold.otf */; };
-		03CB7E9E103446E29D498F3A /* GothamBook.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DBDFCFC03814114BF23BAB1 /* GothamBook.ttf */; };
-		7DB5B49CF6D741478589550B /* GothamMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 335D1642A741457280C67045 /* GothamMedium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +48,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* NeostorernTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeostorernTests.m; sourceTree = "<group>"; };
 		0ACC85DA92B10D2566780C17 /* Pods-Neostorern-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neostorern-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Neostorern-tvOS/Pods-Neostorern-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		0DBDFCFC03814114BF23BAB1 /* GothamBook.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = GothamBook.ttf; path = ../Assets/Font/GothamBook.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Neostorern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neostorern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Neostorern/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Neostorern/AppDelegate.m; sourceTree = "<group>"; };
@@ -59,20 +60,19 @@
 		2D02E4901E0B4A5D006451C7 /* Neostorern-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Neostorern-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0D27D237EDCF6E7873B47E /* libPods-Neostorern-NeostorernTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Neostorern-NeostorernTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3188DD56CBC13FDE17486EA5 /* Pods-Neostorern-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neostorern-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Neostorern-tvOS/Pods-Neostorern-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		335D1642A741457280C67045 /* GothamMedium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = GothamMedium.ttf; path = ../Assets/Font/GothamMedium.ttf; sourceTree = "<group>"; };
 		732B079629E4250E9450438E /* libPods-Neostorern.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Neostorern.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7398BB262D7E0430DE2D4594 /* Pods-Neostorern.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neostorern.release.xcconfig"; path = "Target Support Files/Pods-Neostorern/Pods-Neostorern.release.xcconfig"; sourceTree = "<group>"; };
 		7B1C7B4DBF419CBC40A24E69 /* libPods-Neostorern-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Neostorern-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Neostorern/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85CF2E6247BE6F2AFFD5A50F /* libPods-Neostorern-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Neostorern-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2701BF7A64279FCFAB0E04 /* Pods-Neostorern-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neostorern-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Neostorern-tvOSTests/Pods-Neostorern-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		CBFBE8BC00B84EA4A8E20714 /* Gotham-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Gotham-Bold.otf"; path = "../Assets/Font/Gotham-Bold.otf"; sourceTree = "<group>"; };
 		EA6049F810F930469B0A9ED6 /* Pods-Neostorern-NeostorernTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neostorern-NeostorernTests.debug.xcconfig"; path = "Target Support Files/Pods-Neostorern-NeostorernTests/Pods-Neostorern-NeostorernTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F8ABA08EB5F6C4296877ED02 /* Pods-Neostorern-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neostorern-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Neostorern-tvOSTests/Pods-Neostorern-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FCFEDA65A9DFEFB3FEBB5E91 /* Pods-Neostorern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neostorern.debug.xcconfig"; path = "Target Support Files/Pods-Neostorern/Pods-Neostorern.debug.xcconfig"; sourceTree = "<group>"; };
-		CBFBE8BC00B84EA4A8E20714 /* Gotham-Bold.otf */ = {isa = PBXFileReference; name = "Gotham-Bold.otf"; path = "../Assets/Font/Gotham-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0DBDFCFC03814114BF23BAB1 /* GothamBook.ttf */ = {isa = PBXFileReference; name = "GothamBook.ttf"; path = "../Assets/Font/GothamBook.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		335D1642A741457280C67045 /* GothamMedium.ttf */ = {isa = PBXFileReference; name = "GothamMedium.ttf"; path = "../Assets/Font/GothamMedium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +155,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		610A77DF65DD4C80A9EAAD34 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CBFBE8BC00B84EA4A8E20714 /* Gotham-Bold.otf */,
+				0DBDFCFC03814114BF23BAB1 /* GothamBook.ttf */,
+				335D1642A741457280C67045 /* GothamMedium.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,17 +215,6 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		610A77DF65DD4C80A9EAAD34 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				CBFBE8BC00B84EA4A8E20714 /* Gotham-Bold.otf */,
-				0DBDFCFC03814114BF23BAB1 /* GothamBook.ttf */,
-				335D1642A741457280C67045 /* GothamMedium.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
