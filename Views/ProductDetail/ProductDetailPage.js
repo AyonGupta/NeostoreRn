@@ -98,6 +98,7 @@ const ProductDetailPage = ({ route, navigation }) => {
 
   useEffect(() => {
     if (BuyData.status != undefined) {
+      console.log (BuyData.status)
       Alert.alert(StringConstant.LP_NEOSTORE, "Added to cart successfully");
     }
   }, [BuyData]);
@@ -122,7 +123,7 @@ const ProductDetailPage = ({ route, navigation }) => {
         name={ProductData.name}
         OnClose={(quantity) => {
           setBuyNowVisible(false);
-          console.log (quantity)
+          console.log(quantity);
           if (quantity != undefined) {
             if (quantity.length > 0) {
               dispatch(ProductDetailViewModel.Buy(ProdId, quantity));

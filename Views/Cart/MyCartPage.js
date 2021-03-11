@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  View,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  Image,
-  TouchableHighlight,
-  StyleSheet,
-} from "react-native";
+import { View, TouchableOpacity, Image, Text } from "react-native";
 import { SwipeListView, SwipeRow } from "react-native-swipe-list-view";
 import { useDispatch, useSelector } from "react-redux";
 import LoaderPage from "../SubViews/Loader/LoaderPage";
@@ -35,12 +27,21 @@ const MyCartPage = () => {
 
   //6. Dispatch
   const dispatch = useDispatch();
+
+  //7. Total Cost
+  const [TotalAmount, SetTotalAmount] = useState(0);
+
   useEffect(() => {
     dispatch(MyCartViewModel.GetItems());
   }, []);
 
   useEffect(() => {
-    console.log (CartData)
+    if (CartData != undefined) {
+      // console.log ('total cost = ', CartData.reduce((a,b) => a.product.cost + b.product.cost, 0))
+      let total = 0;
+      CartData.map((Obj) => (total = Obj.product.cost + total));
+      SetTotalAmount(total);
+    }
   }, [CartData]);
   useEffect(() => {}, [ErrorData]);
 
@@ -70,21 +71,53 @@ const MyCartPage = () => {
         image={data.item.product.product_images}
         category={data.item.product.product_category}
         quantity={data.item.quantity}
-        cost = {data.item.product.cost}
+        cost={data.item.product.cost}
       />
     </SwipeRow>
   );
 
   return (
-    <SwipeListView
-      style={MyCartPageStyle.flatList}
-      data={CartData}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id.toString()}
-      ItemSeparatorComponent={() => {
-        return <View style={{ height: 0.5, backgroundColor: "grey" }}></View>;
-      }}
-    />
+    <View>
+      <LoaderPage visible={isLoader} />
+      <SwipeListView
+        style={MyCartPageStyle.flatList}
+        data={CartData}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
+        ItemSeparatorComponent={() => {
+          return <View style={{ height: 0.5, backgroundColor: "grey" }}></View>;
+        }}
+        ListFooterComponent={() => {
+          return (
+            <View style = {{marginTop : 20}}>
+              <View style={MyCartPageStyle.separator}></View>
+              <View style={MyCartPageStyle.totalview}>
+                <Text style={MyCartPageStyle.total}> TOTAL </Text>
+                <View style={MyCartPageStyle.priceView}>
+                  <Text style={MyCartPageStyle.pricetext}>
+                    Rs {TotalAmount}
+                  </Text>
+                </View>
+              </View>
+              <View style={MyCartPageStyle.separator}></View>
+
+              <View
+                style={{
+                  width: "100%",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <TouchableOpacity style={MyCartPageStyle.orderView}>
+                  <Text style={MyCartPageStyle.ordertext}>Order</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          );
+        }}
+        contentContainerStyle={{ paddingBottom: 180 }}
+      />
+    </View>
   );
 };
 
