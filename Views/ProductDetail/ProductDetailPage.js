@@ -122,7 +122,7 @@ const ProductDetailPage = ({ route, navigation }) => {
         name={ProductData.name}
         OnClose={(quantity) => {
           setBuyNowVisible(false);
-
+          console.log (quantity)
           if (quantity != undefined) {
             if (quantity.length > 0) {
               dispatch(ProductDetailViewModel.Buy(ProdId, quantity));

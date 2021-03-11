@@ -21,7 +21,7 @@ const BuyPopupStyle = StyleSheet.create (
             justifyContent : 'center',
             alignItems : 'center',
             overflow : 'hidden',
-            flex : 1
+            flex : 1,
         },
         container :
         {
@@ -37,7 +37,7 @@ const BuyPopupStyle = StyleSheet.create (
             fontFamily : FontConstant.GOTHAM_BOLD,
             fontSize : 25,
             marginHorizontal : 20, 
-            
+            textAlign : 'center'
         },
         imageborder : 
         {
@@ -100,6 +100,7 @@ const BuyPopupStyle = StyleSheet.create (
             flex: 1,
             width: Dimensions.get('window').width,
             height: Dimensions.get('window').height,
+            
           },
           modalContainer: {
             height: Dimensions.get('window').height * .3,

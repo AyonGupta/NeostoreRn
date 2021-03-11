@@ -35,24 +35,19 @@ const MyCartPage = () => {
 
   //6. Dispatch
   const dispatch = useDispatch();
-
-  const dummy = Array(20)
-    .fill("")
-    .map((_, i) => ({ key: `${i}`, text: `item #${i}` }));
-
   useEffect(() => {
     dispatch(MyCartViewModel.GetItems());
   }, []);
 
-  useEffect(() => {}, [CartData]);
   useEffect(() => {
-  }, [ErrorData]);
+    console.log (CartData)
+  }, [CartData]);
+  useEffect(() => {}, [ErrorData]);
 
-  const OnClickDelete = (id) => 
-  {
-    console.log (id)
-  }
-  
+  const OnClickDelete = (id) => {
+    console.log(id);
+  };
+
   const renderItem = (data) => (
     <SwipeRow
       disableLeftSwipe={false}
@@ -60,23 +55,22 @@ const MyCartPage = () => {
       leftOpenValue={20 + Math.random() * 150}
       rightOpenValue={-100}
     >
-      <View 
-      style={MyCartPageStyle.rowBack}
+      <TouchableOpacity
+        style={MyCartPageStyle.rowBack}
+        onPress={() => OnClickDelete(data)}
       >
-          <TouchableOpacity
-          onPress = {() => OnClickDelete (data)}>
-          <Image
+        <Image
           style={MyCartPageStyle.rightSwipeDeleteView}
           source={ImageConstant.CART_DELETE}
         />
-          </TouchableOpacity>
-        
-      </View>
+      </TouchableOpacity>
 
       <MyCartItem
         name={data.item.product.name}
         image={data.item.product.product_images}
-        category = {data.item.product.product_category}
+        category={data.item.product.product_category}
+        quantity={data.item.quantity}
+        cost = {data.item.product.cost}
       />
     </SwipeRow>
   );

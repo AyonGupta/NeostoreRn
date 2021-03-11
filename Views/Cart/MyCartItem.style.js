@@ -37,9 +37,30 @@ const MyCartItemStyle = StyleSheet.create ({
     },
     bottomView :
     {
-        width : 100,
-        backgroundColor : 'yellow',
-        flexDirection : 'row'
+        marginTop : 5,
+        marginBottom : 15,
+        paddingVertical : 5,
+        width : '100%',
+        flexDirection : 'row',
+        alignItems : 'center', 
+    },
+    stepperView : 
+    {
+        flex : 0.5
+    },
+    priceview : 
+    {
+        flex : 0.5,
+        alignItems : 'flex-end',
+        justifyContent : 'center',
+        marginRight : 20
+    },
+    price :
+    {
+        fontFamily : FontConstant.GOTHAM_BOLD,
+        fontSize : 20,
+        color : ColorConstant.GREY,
+        
     }
 })
 export default MyCartItemStyle

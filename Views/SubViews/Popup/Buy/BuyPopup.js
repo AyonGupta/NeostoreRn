@@ -24,10 +24,7 @@ const BuyPopup = (props) =>
     return (
         
         <KeyboardAvoidingView 
-        style={BuyPopupStyle.container1} 
-        contentContainerStyle={BuyPopupStyle.container1} 
         behavior={'padding'}
-        
         >
         <Modal
         animationType="fade"
@@ -40,6 +37,7 @@ const BuyPopup = (props) =>
         style = {BuyPopupStyle.blurBg}>
         </View>
         <ScrollView
+        
         contentContainerStyle = {{paddingTop : 64}}>
         <View
         style = {BuyPopupStyle.bg}>
