@@ -98,7 +98,7 @@ const ProductDetailPage = ({ route, navigation }) => {
 
   useEffect(() => {
     if (BuyData.status != undefined) {
-      console.log (BuyData.status)
+      console.log(BuyData.status);
       Alert.alert(StringConstant.LP_NEOSTORE, "Added to cart successfully");
     }
   }, [BuyData]);
@@ -182,49 +182,79 @@ const ProductDetailPage = ({ route, navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <Image
-          style={ProductDetailPageStyle.bannerImage}
-          source={{
-            uri: selectedImageUri,
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
           }}
-        />
-
-        <FlatList
-          style={ProductDetailPageStyle.flatList}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          data={ProductData.product_images}
-          keyExtractor={(value) => value.id.toString()}
-          renderItem={(data) => {
-            return (
-              <TouchableOpacity
-                style={[
-                  ProductDetailPageStyle.imgs,
-                  data.item.id == selectedIndex
-                    ? ProductDetailPageStyle.redborder
-                    : ProductDetailPageStyle.greyborder,
-                ]}
-                onPress={() => {
-                  setSelectedIndex(data.item.id);
-                  SetSelectedImageUri(data.item.image);
-                }}
-              >
-                <Image
-                  style={{ flex: 1 }}
-                  source={{
-                    uri: data.item.image,
+        >
+          <Image
+            style={ProductDetailPageStyle.bannerImage}
+            resizeMode="cover"
+            source={{
+              uri: selectedImageUri,
+            }}
+          />
+        </View>
+        {/* <View style={{ height: 80, backgroundColor: "red" }}> */}
+          <FlatList
+            style={ProductDetailPageStyle.flatList}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            data={ProductData.product_images}
+            keyExtractor={(value) => value.id.toString()}
+            renderItem={(data) => {
+              return (
+                <TouchableOpacity
+                  style={[
+                    ProductDetailPageStyle.imgs,
+                    data.item.id == selectedIndex
+                      ? ProductDetailPageStyle.redborder
+                      : ProductDetailPageStyle.greyborder,
+                  ]}
+                  onPress={() => {
+                    setSelectedIndex(data.item.id);
+                    SetSelectedImageUri(data.item.image);
                   }}
-                />
-              </TouchableOpacity>
-            );
-          }}
-        />
+                >
+                  <Image
+                    style={{ flex: 1 }}
+                    source={{
+                      uri: data.item.image,
+                    }}
+                  />
+                </TouchableOpacity>
+              );
+            }}
+          />
+        {/* </View> */}
         <View style={ProductDetailPageStyle.divider} />
 
-        <View>
+        <View style={{ flex: 1 }}>
           <Text style={ProductDetailPageStyle.desc}>Description</Text>
           <Text style={ProductDetailPageStyle.descText}>
-            {/* In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.                                        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.                                        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.                                        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. */}
+            In publishing and graphic design, Lorem ipsum is a placeholder text
+            commonly used to demonstrate the visual form of a document or a
+            typeface without relying on meaningful content. In publishing and
+            graphic design, Lorem ipsum is a placeholder text commonly used to
+            demonstrate the visual form of a document or a typeface without
+            relying on meaningful content. In publishing and graphic design,
+            Lorem ipsum is a placeholder text commonly used to demonstrate the
+            visual form of a document or a typeface without relying on
+            meaningful content. In publishing and graphic design, Lorem ipsum is
+            a placeholder text commonly used to demonstrate the visual form of a
+            document or a typeface without relying on meaningful content. In
+            publishing and graphic design, Lorem ipsum is a placeholder text
+            commonly used to demonstrate the visual form of a document or a
+            typeface without relying on meaningful content. In publishing and
+            graphic design, Lorem ipsum is a placeholder text commonly used to
+            demonstrate the visual form of a document or a typeface without
+            relying on meaningful content. In publishing and graphic design,
+            Lorem ipsum is a placeholder text commonly used to demonstrate the
+            visual form of a document or a typeface without relying on
+            meaningful content. In publishing and graphic design, Lorem ipsum is
+            a placeholder text commonly used to demonstrate the visual form of a
+            document or a typeface without relying on meaningful content.
           </Text>
         </View>
       </View>

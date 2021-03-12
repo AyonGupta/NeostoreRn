@@ -37,8 +37,7 @@ const BuyPopup = (props) =>
         style = {BuyPopupStyle.blurBg}>
         </View>
         <ScrollView
-        
-        contentContainerStyle = {{paddingTop : 64}}>
+         contentContainerStyle = {{paddingTop : 64}}>
         <View
         style = {BuyPopupStyle.bg}>
         <View

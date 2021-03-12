@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, TouchableOpacity, Image, Text } from "react-native";
+import { View, TouchableOpacity, Image, Text, Alert } from "react-native";
 import { SwipeListView, SwipeRow } from "react-native-swipe-list-view";
 import { useDispatch, useSelector } from "react-redux";
 import LoaderPage from "../SubViews/Loader/LoaderPage";
@@ -31,9 +31,22 @@ const MyCartPage = () => {
   //7. Total Cost
   const [TotalAmount, SetTotalAmount] = useState(0);
 
+  //8. Refetch data
+  const [isRefresh, SetIsRefresh] = useState(false);
+
+  useEffect (()=> {
+    console.log ('called', Date())
+  })
   useEffect(() => {
-    dispatch(MyCartViewModel.GetItems());
+    SetIsRefresh(true);
   }, []);
+
+  useEffect(() => {
+    if (isRefresh) {
+      dispatch(MyCartViewModel.GetItems());
+      SetIsRefresh(false);
+    }
+  }, [isRefresh]);
 
   useEffect(() => {
     if (CartData != undefined) {
@@ -43,11 +56,25 @@ const MyCartPage = () => {
       SetTotalAmount(total);
     }
   }, [CartData]);
-  useEffect(() => {}, [ErrorData]);
+  useEffect(() => {
+  }, [ErrorData]);
 
-  const OnClickDelete = (id) => {
-    console.log(id);
+  const OnClickDelete = (data) => {
+   dispatch(MyCartViewModel.DeleteItemById(data.item.product_id));
   };
+
+  useEffect(() => {
+    if (DeleteCartData != undefined) {
+      const status = DeleteCartData.status;
+      if (status != undefined) {
+        if (status == 200) {
+          SetIsRefresh(true);
+        } else {
+          Alert.alert("Neostore", DeleteCartData.user_msg);
+        }
+      }
+    }
+  }, [DeleteCartData]);
 
   const renderItem = (data) => (
     <SwipeRow
@@ -89,7 +116,7 @@ const MyCartPage = () => {
         }}
         ListFooterComponent={() => {
           return (
-            <View style = {{marginTop : 20}}>
+            <View style={{ marginTop: 20 }}>
               <View style={MyCartPageStyle.separator}></View>
               <View style={MyCartPageStyle.totalview}>
                 <Text style={MyCartPageStyle.total}> TOTAL </Text>

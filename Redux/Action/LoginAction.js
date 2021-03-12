@@ -1,4 +1,4 @@
-import { LOADER, LOGIN, LOGIN_FAIL } from "../Type/LoginType";
+import { LOADER, LOGIN, LOGIN_FAIL, LOGIN_FORCE } from "../Type/LoginType";
 import LoginService from '../../Service/LoginService'
 import LoginViewModel from "../../ViewModel/Login/LoginViewModel";
 export const PerformLogin = (email, pass) => 
@@ -45,7 +45,19 @@ export const PerformLogin = (email, pass) =>
         )
     }
 
-    const ShowLoader = () => {
+export const PerformForceLogin = () => {
+
+    return dispatch => {
+        dispatch (ShowLoader ())
+        dispatch (PerformAsyncForceLogin())
+    }
+}
+
+const PerformAsyncForceLogin = () => async dispatch => dispatch ({
+    type : LOGIN_FORCE
+})
+
+    export const ShowLoader = () => {
         return {
             type : LOADER
         }

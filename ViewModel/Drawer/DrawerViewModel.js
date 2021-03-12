@@ -1,6 +1,9 @@
 import { PerformLogout } from "../../Redux/Action/LogoutAction";
 import { GetAccountDetail } from "../../Redux/Action/MyAccountAction";
+import CommonMethods from "../../Utilities/Common/CommonMethods";
 import RouteConstant from "../../Utilities/Constants/RouteConstant";
+import * as LocalStorageKeys from "../../Utilities/Constants/LocalStorageKeys";
+
 const DrawerViewModel = 
 {
    GetMenuItems : () => {

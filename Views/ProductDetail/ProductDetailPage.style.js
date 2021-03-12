@@ -128,13 +128,15 @@ const ProductDetailPageStyle = StyleSheet.create({
   bannerImage: {
     marginHorizontal: 20,
     marginVertical: 10,
-    width: "80%",
-    height: "40%",
-    resizeMode: "contain",
+    width: Width * 0.8,
+    height: Height * 0.4,
+    flex : 1,
+    backgroundColor : 'red'
   },
   flatList: {
-    flex: 0.4,
+    // flex: 0.4,
     flexGrow: 0,
+    // height : 70
   },
   imgs: {
     borderWidth: 2,

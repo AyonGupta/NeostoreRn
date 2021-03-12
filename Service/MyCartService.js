@@ -30,8 +30,8 @@ const MyCartService = {
       headers: {
         "Content-Type": "multipart/form-data",
         access_token: "60363d1f0f412",
-        body: formData,
-      }
+      },
+      body : formData
     };
 
     return  PerformRequest(url, requestOptions);
@@ -47,10 +47,10 @@ const MyCartService = {
       headers: {
         "Content-Type": "multipart/form-data",
         access_token: "60363d1f0f412",
-        body: formData,
-      }
+      },
+      body: formData
     };
-
+    console.log (formData, url)
     return PerformRequest(url, requestOptions);
   },
 };

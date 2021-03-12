@@ -41,7 +41,7 @@ const CommonMethods =
         try {
              await AsyncStorage.getItem (key, (error, value) => 
              {
-                 callback (error == undefined ? value : error)
+                 callback (error == undefined || error == null ? value : error)
              })
         } catch (error) {
             callback(error)
@@ -51,17 +51,9 @@ const CommonMethods =
     DeleteLocalByKey : async (key) => 
     {
         try {
-            await AsyncStorage.removeItem (key, (error) => 
-            {
-                if (error != null){
-                    console.log ('error while saving data = ' + JSON.stringify(error))
-                } else 
-                {
-                    console.log (key + ' deleted')
-                }
-            })
+            await AsyncStorage.removeItem (key)
         } catch (error) {
-            
+            console.log (error)
         }
     },
     CheckLoginStatus : () => 

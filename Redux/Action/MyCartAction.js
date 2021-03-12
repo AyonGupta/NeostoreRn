@@ -71,12 +71,14 @@ export const DeleteCartItem = (id) => {
 const PerformAsynDeleteCartItem = (id) => async (dispatch) => {
   MyCartService.DeleteCartItem(id).then(
     (data) => {
+      console.log ('delete cart response =', data)
       dispatch({
         type: DELETE_CART,
         data: data,
       });
     },
     (error) => {
+      console.log ('delete cart error =', error)
       dispatch({
         type: DELETE_CART_FAIL,
         data: error,
