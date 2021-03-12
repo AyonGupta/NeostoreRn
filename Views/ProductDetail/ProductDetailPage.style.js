@@ -19,6 +19,8 @@ const ProductDetailPageStyle = StyleSheet.create({
     flexGrow: 0.95,
     justifyContent: "space-evenly",
     flexDirection: "column",
+    paddingBottom : 30,
+    
   },
   topview: {
     backgroundColor: ColorConstant.WHITE,
@@ -131,7 +133,6 @@ const ProductDetailPageStyle = StyleSheet.create({
     width: Width * 0.8,
     height: Height * 0.4,
     flex : 1,
-    backgroundColor : 'red'
   },
   flatList: {
     // flex: 0.4,

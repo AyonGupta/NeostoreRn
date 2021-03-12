@@ -114,7 +114,7 @@ const ProductDetailPage = ({ route, navigation }) => {
     <ScrollView
       contentContainerStyle={ProductDetailPageStyle.scrollContent}
       style={ProductDetailPageStyle.scrollView}
-      // bounces = {false}
+      bounces = {false}
       showsVerticalScrollIndicator={false}
     >
       <LoaderPage visible={IsLoader} />
@@ -190,7 +190,7 @@ const ProductDetailPage = ({ route, navigation }) => {
         >
           <Image
             style={ProductDetailPageStyle.bannerImage}
-            resizeMode="cover"
+            resizeMode="stretch"
             source={{
               uri: selectedImageUri,
             }}
@@ -233,28 +233,7 @@ const ProductDetailPage = ({ route, navigation }) => {
         <View style={{ flex: 1 }}>
           <Text style={ProductDetailPageStyle.desc}>Description</Text>
           <Text style={ProductDetailPageStyle.descText}>
-            In publishing and graphic design, Lorem ipsum is a placeholder text
-            commonly used to demonstrate the visual form of a document or a
-            typeface without relying on meaningful content. In publishing and
-            graphic design, Lorem ipsum is a placeholder text commonly used to
-            demonstrate the visual form of a document or a typeface without
-            relying on meaningful content. In publishing and graphic design,
-            Lorem ipsum is a placeholder text commonly used to demonstrate the
-            visual form of a document or a typeface without relying on
-            meaningful content. In publishing and graphic design, Lorem ipsum is
-            a placeholder text commonly used to demonstrate the visual form of a
-            document or a typeface without relying on meaningful content. In
-            publishing and graphic design, Lorem ipsum is a placeholder text
-            commonly used to demonstrate the visual form of a document or a
-            typeface without relying on meaningful content. In publishing and
-            graphic design, Lorem ipsum is a placeholder text commonly used to
-            demonstrate the visual form of a document or a typeface without
-            relying on meaningful content. In publishing and graphic design,
-            Lorem ipsum is a placeholder text commonly used to demonstrate the
-            visual form of a document or a typeface without relying on
-            meaningful content. In publishing and graphic design, Lorem ipsum is
-            a placeholder text commonly used to demonstrate the visual form of a
-            document or a typeface without relying on meaningful content.
+            {ProductData.description}
           </Text>
         </View>
       </View>
