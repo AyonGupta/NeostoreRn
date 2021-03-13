@@ -34,8 +34,6 @@ const MyCartPage = () => {
   //8. Refetch data
   const [isRefresh, SetIsRefresh] = useState(false);
 
-  //9. Quantity  
-
   useEffect (()=> {
   })
   useEffect(() => {
