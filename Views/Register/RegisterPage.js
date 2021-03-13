@@ -18,10 +18,11 @@ import Entry from "../../Views/SubViews/Entry/Entry";
 import { useDispatch, useSelector } from "react-redux";
 import { PerformRegister } from "../../Redux/Action/RegisterAction";
 import RegisterViewModel from "../../ViewModel/Register/RegisterViewModel";
+import LoaderPage from "../SubViews/Loader/LoaderPage";
 
 const RegisterPage = (props) => 
 {
-
+    
     //1. First name
     const [Fname, SetFname] = useState('')
     //2. Last name
@@ -39,10 +40,11 @@ const RegisterPage = (props) =>
     //8. Terms and conditions
     const [TermsSelected, SetTermsSelected] = useState(false)
     
-
+    
     const dispatch = useDispatch()
     const UserData = useSelector (state => state.registerReducer.UserData)
-
+    const IsLoader = useSelector (state => state.registerReducer.isLoader)
+    
     const GetPadding = () => {
         return (
             <View style = {{height : 20}}/>
@@ -79,7 +81,7 @@ const RegisterPage = (props) =>
                 </TouchableOpacity>
                 )
             }    
-
+            
             const OnClickRegister = () => 
             {
                 //1. First name
@@ -146,19 +148,22 @@ const RegisterPage = (props) =>
                                 )
                             })
                         }, [])
-                
+                        
                         useEffect (()=> 
                         {
                             if (UserData.status != undefined) {
-                                Alert.alert (Strings.LP_NEOSTORE, 'Welcome ' + UserData.data.first_name + ' ' + UserData.data.LastName)
+                                Alert.alert (Strings.LP_NEOSTORE, 'Welcome ' + UserData.data.first_name + ' ' + UserData.data.last_name)
                             }
                         }, [UserData])
+                        
                         return (
                             <SafeAreaView 
                             style = {RegisterStyle.safeArea}>
                             <ScrollView 
                             style = {RegisterStyle.scrollView}
                             contentContainerStyle = {RegisterStyle.scrollContent}>
+                            <LoaderPage visible = {IsLoader}/>
+                            
                             <Text style = {RegisterStyle.neostore}>NeoStore</Text>
                             <GetPadding/>
                             <GetPadding/>

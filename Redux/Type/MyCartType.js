@@ -1,0 +1,7 @@
+export const GET_CART = 'GET_CART'
+export const GET_CART_FAIL = 'GET_CART_FAIL'
+export const EDIT_CART = 'EDIT_CART'
+export const EDIT_CART_FAIL = 'EDIT_CART_FAIL'
+export const DELETE_CART = 'DELETE_CART'
+export const DELETE_CART_FAIL = 'DELETE_CART_FAIL'
+export const LOADER = 'CART_LOADER'

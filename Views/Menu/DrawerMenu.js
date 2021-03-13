@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import 
 {
   SafeAreaView,
@@ -12,9 +12,11 @@ import DrawerViewModel from "../../ViewModel/Drawer/DrawerViewModel"
 import DrawerHeader from "./DrawerHeader"
 import DrawerItem from "./DrawerItems"
 import * as Colors from "../../Utilities/Constants/ColorConstant"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import CommonMethods from "../../Utilities/Common/CommonMethods"
 import * as LocalStorageKeys from "../../Utilities/Constants/LocalStorageKeys";
+import { useIsDrawerOpen } from '@react-navigation/drawer';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -38,11 +40,15 @@ const styles = StyleSheet.create({
 const DrawerMenu = (props) => 
 {
   const [selectedId , SetSelectedId] = useState(-1);
-  const MenuItems = DrawerViewModel.GetMenuItems()
+  const [refresh , SetRefresh] = useState(false);
+  const [MenuItems , SetMenuItems] = useState(undefined);
+
+  //let MenuItems = DrawerViewModel.GetMenuItems()
   const dispatch = useDispatch ()
+  const AccountData = useSelector (state => state.myAccountReducer.UserData)
+
   const renderItem = ({ item }) => {
     const backgroundColor = Colors.MENU_BG
-    
     return (
       <DrawerItem
       item={item}
@@ -56,10 +62,9 @@ const DrawerMenu = (props) =>
             if (Page.id != undefined) 
             {
               if (Page.id === '10') {
-                CommonMethods.SaveData (LocalStorageKeys.KIsLogin, 'false')
                 dispatch(DrawerViewModel.Logout())
                 return
-              }
+              } 
             }
             props.navigation.navigate 
             (Page.page, 
@@ -67,7 +72,7 @@ const DrawerMenu = (props) =>
                 'ProductId' : Page.id != undefined ? Page.id : '',
                 'title' : Page.title != undefined ? Page.title : ''
               })
-            
+              
             }
             
           }
@@ -78,19 +83,43 @@ const DrawerMenu = (props) =>
       };
       
       
+      const isDrawerOpen = useIsDrawerOpen();
+      
+      useEffect (()=> 
+      {
+        if (isDrawerOpen) 
+        {
+          SetMenuItems(DrawerViewModel.GetMenuItems())
+          dispatch (DrawerViewModel.GetAccountDetails())
+        }
+      }, [isDrawerOpen])
+      
+
+      useEffect (()=>{
+        if (AccountData.data != undefined) 
+        {
+          if (AccountData.data.total_carts > 0) {
+            MenuItems[1].badge = AccountData.data.total_carts
+          }
+          if (AccountData.data.total_orders > 0) {
+            MenuItems[8].badge = AccountData.data.total_orders
+          }
+          SetRefresh (!refresh)
+        }
+      }, [AccountData])
+
       return (
         <SafeAreaView style={styles.container}>
         <FlatList
         data={MenuItems}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        extraData={selectedId}
+        extraData={refresh}
         ListHeaderComponent = {DrawerHeader}
         style = {styles.flatlistBg}
         ItemSeparatorComponent = {()=> {
           return (
             <View style = {{height : 0.5, backgroundColor : 'black'}}>
-            
             </View>
             )
           }}

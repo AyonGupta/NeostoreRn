@@ -1,7 +1,7 @@
 export default RouteConstant = 
 {
     Home : 'Home',
-    Cart : 'MyCart',
+    Cart : 'My Cart',
     ProductStack : 'ProductStack',
     Product : 'ProductList',
     Store : 'StoreLocator',

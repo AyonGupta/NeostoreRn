@@ -1,4 +1,4 @@
-import { GET_PRODUCT } from "../Type/ProductType";
+import { GET_PRODUCT, LOADER, GET_PRODUCT_FAIL } from "../Type/ProductType";
 const initialState = {
     ProductData : {},
     isLoader : false,
@@ -12,6 +12,17 @@ const ProductReducer = (state = initialState, action) => {
             ...state,
             ProductData : action.data,
             isLoader : false
+        }
+        case LOADER :
+        return {
+            ...state,
+            isLoader : true
+        }
+        case GET_PRODUCT_FAIL :
+        return {
+            ...state,
+            isLoader : false,
+            errorData : action.data
         }
         default : 
         isLoader = true
