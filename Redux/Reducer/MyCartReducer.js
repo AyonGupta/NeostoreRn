@@ -19,12 +19,14 @@ const initialState = {
 const MyCartReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CART:
+      console.log ('loader stopped')
       return {
         ...state,
         CartData: action.data,
         isLoader: false,
       };
     case LOADER:
+      console.log ('loader started')
       return {
         ...state,
         isLoader: true,
@@ -36,6 +38,7 @@ const MyCartReducer = (state = initialState, action) => {
         isLoader: false,
       };
     case EDIT_CART:
+      console.log ('loader stopped')
       return {
         ...state,
         EditCartData: action.data,

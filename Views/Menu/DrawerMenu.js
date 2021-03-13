@@ -64,7 +64,7 @@ const DrawerMenu = (props) =>
               if (Page.id === '10') {
                 dispatch(DrawerViewModel.Logout())
                 return
-              }
+              } 
             }
             props.navigation.navigate 
             (Page.page, 

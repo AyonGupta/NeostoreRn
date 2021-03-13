@@ -29,16 +29,17 @@ const App = () => {
     SetIsLoginAsync (true)
     
   }, [IsLogin])
+  
   useEffect (()=> {
     SetIsLoader (true)
     RouteViewModel.CheckLoginStatus ((status) => {
-      console.log ('CheckLoginStatus =', status)
+      // console.log ('CheckLoginStatus =', status)
       SetIsLoader (false)
-      SetIsLoginAsync (true)
-
       if (status) {
         dispatch (PerformForceLogin())
       }
+
+      SetIsLoginAsync (true)
 
     })
 
@@ -46,14 +47,14 @@ const App = () => {
 
 
   if (IsLoginAsync) {
-    console.log ('IsLoader if = ', IsLoader)
+    // console.log ('IsLoader if = ', IsLoader)
     return (
       IsLogin ? <DrawerStack/> : <RouteStack/> 
       //<DrawerStack/> 
   
       )
     } else {
-      console.log ('IsLoader else = ', IsLoader)
+      // console.log ('IsLoader else = ', IsLoader)
       return (
         <LoaderPage visible = {IsLoader}/>
       );

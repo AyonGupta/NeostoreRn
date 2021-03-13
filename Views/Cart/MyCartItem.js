@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Image, Text } from "react-native";
 import { useEffect } from "react/cjs/react.development";
 import MyCartItemStyle from "./MyCartItem.style";
 import InputSpinner from "react-native-input-spinner";
 import * as FontConstant from "../../Utilities/Constants/FontConstant";
 const MyCartItem = (props) => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+  }, []);
 
   return (
     <View style={MyCartItemStyle.conatiner}>
@@ -26,7 +27,7 @@ const MyCartItem = (props) => {
               step={1}
               skin="clean"
               value={props.quantity}
-              onChange={(num) => {}}
+              onChange={(num) => {props.OnChangeQuantity(props.productId, num)}}
               fontFamily={FontConstant.GOTHAM_BOLD}
               shadow={false}
             />

@@ -34,8 +34,9 @@ const MyCartPage = () => {
   //8. Refetch data
   const [isRefresh, SetIsRefresh] = useState(false);
 
+  //9. Quantity  
+
   useEffect (()=> {
-    console.log ('called', Date())
   })
   useEffect(() => {
     SetIsRefresh(true);
@@ -57,11 +58,28 @@ const MyCartPage = () => {
     }
   }, [CartData]);
   useEffect(() => {
+    
   }, [ErrorData]);
 
+  useEffect (()=> {
+    if (EditCartData != undefined) {
+      const status = EditCartData.status
+      if (status != undefined) {
+        if (status == 200) {
+         SetIsRefresh(true);
+        } else {
+          Alert.alert("Neostore", EditCartData.user_msg);
+        }
+      }
+    }
+  }, [EditCartData])
   const OnClickDelete = (data) => {
    dispatch(MyCartViewModel.DeleteItemById(data.item.product_id));
   };
+
+  const OnClickUpdateCart = (id, quantity) => {
+    dispatch (MyCartViewModel.EditCartByIdQuantity (id, quantity))
+  }
 
   useEffect(() => {
     if (DeleteCartData != undefined) {
@@ -99,6 +117,11 @@ const MyCartPage = () => {
         category={data.item.product.product_category}
         quantity={data.item.quantity}
         cost={data.item.product.cost}
+        OnChangeQuantity = {(id, quanity) => {
+          OnClickUpdateCart (id, quanity)
+
+        }}
+        productId = {data.item.product_id}
       />
     </SwipeRow>
   );
